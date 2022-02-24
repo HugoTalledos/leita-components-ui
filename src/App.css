@@ -1,3 +1,20 @@
+:root {
+  --primary-color: #2274A5;
+  --primary-light: #70CAD1;
+  --primary-dark: #011627;
+  --light: #FFFBFC;
+  --glass-color: rgba( 255, 255, 255, 0.15 );
+  --dark: #171D1C;
+  --btn-primary: #157F1F;
+  --btn-cancel: #BB0A21;
+  --shadow: #171d1c96;
+  --gray: #a1a1a1;
+  --light-gray: #eeeeee;
+  --glass-default-notify: #FFFBFCA1;
+}
+
+
+
 .App {
   text-align: center;
 }
