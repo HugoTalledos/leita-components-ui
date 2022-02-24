@@ -1,0 +1,95 @@
+button.btn {
+  border: none;
+  border-radius: 3px;
+  padding: 1em;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+button.btn:hover {
+  filter: brightness(90%);
+}
+
+button.btn:disabled {
+  filter: grayscale(50%);
+  color: var(--gray)!important;
+  cursor: default;
+}
+
+button.btn span {
+  margin: 0 5px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  span.rotate {
+    animation: logo-spin infinite 1s linear;
+  }
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+button.btn.full-width {
+  width: 100%;
+}
+
+button.btn.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--light);
+  fill: var(--light);
+}
+
+button.btn.btn-danger {
+  background-color: var(--btn-cancel);
+  color: var(--light);
+  fill: var(--light);
+}
+
+button.btn.btn-primary-outline {
+  background-color: var(--light);
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  fill: var(--primary-color);
+}
+
+button.btn.btn-dark-outline {
+  background-color: var(--light);
+  border: 1px solid var(--primary-dark);
+  color: var(--primary-dark);
+  fill: var(--primary-dark);
+}
+
+button.btn.btn-dark {
+  background-color: var(--primary-dark);
+  color: var(--light);
+  fill: var(--light);
+}
+
+button.btn.btn-link {
+  background-color: transparent;
+  font-weight: 600;
+}
+
+button.btn.btn-link-primary {
+  background-color: transparent;
+  font-weight: 600;
+  color: var(--primary-color);
+  fill: var(--primary-color);
+}
+
+button.btn.btn-link-dark {
+  background-color: transparent;
+  font-weight: 600;
+  color: var(--primary-dark);
+  fill: var(--primary-dark);
+}
+
