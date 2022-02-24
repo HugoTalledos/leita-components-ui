@@ -27,19 +27,19 @@ foobar.singularize('phenomena')
 
 ## Componentes
 ### Button
-| Propiedades | Tipo |Descripción | Opciones |
-|---------|--------|--------|
-|children| React.ReactNode| Compoente especificado como hijo||
-|className||||
-|disabled| Boolean | Hace que el boton se deshabilite| true / false / undefined|
-|fullWidth| Boolean | El boton ocupa todo el espacio disponible | true / false / undefined|
-|icon| String | Icono del boton (Izquierda) | materialdesignicons|
-|label| String| Texto del boton| Prueba|
-|loading| Boolean| Muestra un icono de carga| true / false / undefined|
-|onClick| Function| Acción del boton| () => console.log("Hola mundo)|
-|style| | Inserta estilos personalizados al boton| { margin-top: '5px' }|
-|trailingIcon| String| Icono del boton (Derecha) | materialdesignicons|
-|type| String| Tipo de boton que se desea usar| primary / danger / priamry-outline / dark-outline / dark / link / link-primary / link-dark|
+| Propiedades | Tipo | Descripción | Opciones |
+| --------- | -------- | -------- |
+| children | React.ReactNode | Compoente especificado como hijo | |
+| className | | | |
+| disabled | Boolean | Hace que el boton se deshabilite | true / false / undefined |
+| fullWidth | Boolean | El boton ocupa todo el espacio disponible | true / false / undefined |
+| icon | String | Icono del boton (Izquierda) | materialdesignicons |
+| label | String | Texto del boton | Prueba |
+| loading | Boolean | Muestra un icono de carga | true / false / undefined |
+| onClick | Function | Acción del boton | () => console.log("Hola mundo) |
+| style | | Inserta estilos personalizados al boton| { margin-top: '5px' } |
+| trailingIcon | String | Icono del boton (Derecha) | materialdesignicons |
+| type | String | Tipo de boton que se desea usar | primary / danger / priamry-outline / dark-outline / dark / link / link-primary / link-dark |
 
 ```javascript
 <Button
