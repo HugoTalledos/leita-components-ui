@@ -28,7 +28,7 @@ foobar.singularize('phenomena')
 ## Componentes
 ### Button
 | Propiedades | Tipo | Descripción | Opciones |
-| --------- | -------- | -------- |
+| ----------- | ---- | ----------- | -------- |
 | children | React.ReactNode | Compoente especificado como hijo | |
 | className | | | |
 | disabled | Boolean | Hace que el boton se deshabilite | true / false / undefined |
@@ -41,6 +41,7 @@ foobar.singularize('phenomena')
 | trailingIcon | String | Icono del boton (Derecha) | materialdesignicons |
 | type | String | Tipo de boton que se desea usar | primary / danger / priamry-outline / dark-outline / dark / link / link-primary / link-dark |
 
+### Ejemplo
 ```javascript
 <Button
     label='Prueba'
