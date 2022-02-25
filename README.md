@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Leita Components UI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ejercicio de creación de libreria de componentes para React JS
 
-## Available Scripts
+## Installation (Próximamente)
 
-In the project directory, you can run:
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 
-### `npm start`
+```bash
+pip install foobar
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Usage (Próximamente)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```python
+import foobar
 
-### `npm test`
+# returns 'words'
+foobar.pluralize('word')
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# returns 'geese'
+foobar.pluralize('goose')
 
-### `npm run build`
+# returns 'phenomenon'
+foobar.singularize('phenomena')
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Componentes
+### Button
+| Propiedades | Tipo | Descripción | Opciones |
+| ----------- | ---- | ----------- | -------- |
+| children | React.ReactNode | Compoente especificado como hijo | |
+| className | String | Clase css personalizada| |
+| disabled | Boolean | Hace que el boton se deshabilite | true / false / undefined |
+| fullWidth | Boolean | El boton ocupa todo el espacio disponible | true / false / undefined |
+| icon | String | Icono del boton (Izquierda) | materialdesignicons |
+| label | String | Texto del boton | Prueba |
+| loading | Boolean | Muestra un icono de carga | true / false / undefined |
+| onClick | Function | Acción del boton | () => console.log("Hola mundo) |
+| style | Object | Inserta estilos personalizados al boton| { margin-top: '5px' } |
+| trailingIcon | String | Icono del boton (Derecha) | materialdesignicons |
+| type | String | Tipo de boton que se desea usar | primary / danger / priamry-outline / dark-outline / dark / link / link-primary / link-dark |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Ejemplo
+```javascript
+<Button
+    label='Prueba'
+    onClick={() => console.log("HOLAAAA")}
+    trailingIcon='account'
+    disabled
+/>
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
