@@ -1,0 +1,123 @@
+
+.card {
+  display: flex;
+  background-color: var(--light);
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 1em;
+  margin-bottom: 1em;
+  box-shadow: 1px 1px 25px 0 var(--shadow);
+  max-height: 400px;
+  max-width: 350px;
+}
+
+.images_content {
+  display: flex;
+  flex-direction: column;
+}
+
+.slides {
+  margin: auto;
+  width: 100%;
+  position: relative;
+}
+
+.remove_slide {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+
+.slides p {
+  position: absolute;
+}
+
+.slides img {
+  height: 270px;
+  width: 100%;
+  border-radius: 10px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.slides_thumbnail {
+  display: flex;
+  margin-top: auto;
+  margin-bottom: 20px;
+  overflow: auto;
+  justify-content: space-between;
+  height: 30%;
+  flex-direction: row;
+}
+
+.slides_thumbnail::-webkit-scrollbar {
+  height: 5px;
+  border-radius: 50px;
+}
+
+.slides_thumbnail::-webkit-scrollbar-track {
+  background-color: transparent;
+
+}
+
+.slides_thumbnail::-webkit-scrollbar-thumb {
+  background-color: var(--primary-dark);
+  border-radius: 50px;
+}
+
+.thumb_slide img {
+  width: 80px;
+  height: 50px;
+  object-fit: contain;
+  object-position: center;
+  cursor: pointer;
+  transition: transform .1s ease-in-out;
+}
+
+.thumb_slide img:hover {
+  transform: scale(1.1);
+}
+
+.thumb_slide.selected {
+  filter: grayscale(80%);
+  background-color: var(--light-gray);
+}
+
+.file-select {
+  position: relative;
+  display: inline-block;
+}
+
+
+.file-select::before {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  color: var(--light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: 'Seleccionar';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border: none;
+  padding: 1em;
+  cursor: pointer;
+  transition: 0.2s all ease-in-out;
+}
+
+.file-select:hover::before {
+  background-color: var(--light);
+  border: 1px solid var(--primary-color);
+  color: var(--dark);
+}
+
+.file-select input[type="file"] {
+  opacity: 0;
+  width: 100%;
+  height: 32px;
+  display: inline-block;
+  margin: auto;
+}
