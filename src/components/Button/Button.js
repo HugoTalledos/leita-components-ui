@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import '@mdi/font/css/materialdesignicons.min.css';
 import './Button.css';
 
 const Button = ({

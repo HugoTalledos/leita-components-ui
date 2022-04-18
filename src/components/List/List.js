@@ -54,7 +54,6 @@ export const List = ({ children, loading }) => (
 List.protoType = {
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.element)]),
   loading: PropTypes.Boolean,
-  title: PropTypes.string,
 };
 
 ListItem.protoType = {

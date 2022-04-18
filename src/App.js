@@ -1,14 +1,15 @@
 // import { List, ListItem } from './components/List/List';
 // import Button from './components/Button/Button';
 // import ImagePicker from './components/ImagePicker/ImagePicker';
-import { ChipList, ChipListItem } from './components/ChipList/ChipList';
+// import { ChipList, ChipListItem } from './components/ChipList/ChipList';
+import { BottomNavigation, NavigationItem } from './components/BottomNavigation/BottomNavigation';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <ChipList>
+        {/* <ChipList>
           <ChipListItem
             label="Categoria 1"
             value="aaa"
@@ -30,7 +31,7 @@ function App() {
             value="awa"
             picture={'https://cnnespanol.cnn.com/wp-content/uploads/2021/08/CNN-hotdog.jpeg?quality=100&strip=info'}
           />
-        </ChipList>
+        </ChipList> */}
         {/* <List>
           <ListItem 
             label="Pizza"
@@ -54,6 +55,11 @@ function App() {
             trailingIcon='chevron-right'
           />
         </List> */}
+        <BottomNavigation>
+          <NavigationItem icon="view-list" label="List" />
+          <NavigationItem icon="plus" label="Add" />
+          <NavigationItem icon="account" label="Profile" />
+        </BottomNavigation>
         {/* <Button label='Prueba' onClick={() => console.log("HOLAAAA")} trailingIcon='account'/> */}
         {/* <ImagePicker 
           multiple
