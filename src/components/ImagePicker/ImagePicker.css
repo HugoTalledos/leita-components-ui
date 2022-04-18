@@ -8,7 +8,9 @@
   margin-bottom: 1em;
   box-shadow: 1px 1px 25px 0 var(--shadow);
   max-height: 400px;
+  width: 350px;
   max-width: 350px;
+  transition: .2s height ease-in-out;
 }
 
 .images_content {
@@ -23,9 +25,15 @@
 }
 
 .remove_slide {
+  color: var(--primary-dark);
   position: absolute;
   right: 0;
   cursor: pointer;
+}
+
+.default_icon {
+  font-size: large;
+  color: var(--dark);
 }
 
 .slides p {
@@ -86,6 +94,7 @@
 .file-select {
   position: relative;
   display: inline-block;
+  margin-top: auto;
 }
 
 
@@ -105,12 +114,12 @@
   border: none;
   padding: 1em;
   cursor: pointer;
-  transition: 0.2s all ease-in-out;
+  transition: 0.2s background-color ease-in-out;
 }
 
 .file-select:hover::before {
   background-color: var(--light);
-  border: 1px solid var(--primary-color);
+  border: 2px solid var(--primary-color);
   color: var(--dark);
 }
 

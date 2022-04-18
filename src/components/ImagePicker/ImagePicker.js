@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Buffer } from 'buffer';
 import PropTypes from 'prop-types';
 import { events } from '../../Utils/constants';
-import DefaultIMG from '../../res/icons/face.svg';
-import { ReactComponent as CloseSVG } from '../../res/icons/close.svg';
 import './ImagePicker.css';
 
 const ImagePicker = ({
@@ -141,7 +139,7 @@ const ImagePicker = ({
       setImage(newImageList[0]);
       setImageKey(0);
     } else {
-      setImage(DefaultIMG);
+      setImage('');
       setImageKey(0);
       setImageListThumbs([]);
     }
@@ -159,9 +157,9 @@ const ImagePicker = ({
         <div className="slides">
           {
             (multiple && imageListThumbs.length !== 0)
-            && <CloseSVG onClick={() => removeImage(imageKey)} className="remove_slide" />
+            && <span className={'mdi mdi-24px mdi-close remove_slide'} onClick={() => removeImage(imageKey)} />
           }
-          <img src={image || DefaultIMG} alt="Main" />
+          { image && <img src={image} alt="Main" /> }
         </div>
         {
           multiple
@@ -171,6 +169,7 @@ const ImagePicker = ({
                 (imageListThumbs.length !== 0)
                 && (imageListThumbs || []).map((image, key) => (
                   <div
+                    key={key}
                     className={`thumb_slide ${isActive[key] && 'selected'}`}
                     onClick={() => switchImage(image, key)}
                     onKeyDown={() => switchImage(image, key)}
