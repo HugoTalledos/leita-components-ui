@@ -56,9 +56,9 @@ foobar.singularize('phenomena')
 | ----------- | ---- | ----------- | -------- |
 | imageList | Array | Array de imagenes | [Buffer, url] |
 | maxSize | number | Cantidad maxima de imagenes permitidas | 5 (Por defecto) |
-| maxSizeMB | number | MB maximos permitidos por imagen (Por defecto) | 5000000 |
+| maxSizeMB | number | MB maximos permitidos por imagen | 5000000 (Por defecto) |
 | onChange | Function | Cambio del selector de imagenes | (e) => console.log("Hola mundo) |
-| multiple | boolean | indica si se permite la carga de varias imagenes | true / false |
+| multiple | boolean | indica si se permite la carga de varias imagenes | true (Por defecto) / false |
 
 ### Ejemplo
 ```javascript
