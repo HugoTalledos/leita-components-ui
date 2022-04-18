@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <List loading={test}>
+        <List loading>
           <ListItem 
             label="Pizza"
             value="1"
