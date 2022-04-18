@@ -11,7 +11,7 @@ const ImagePicker = ({
   onChange,
   multiple,
   maxSize = 5,
-  maxSizeMB = 5,
+  maxSizeMB = 5000000,
 }) => {
   const [image, setImage] = useState('');
   const [imageListThumbs, setImageListThumbs] = useState([]);
