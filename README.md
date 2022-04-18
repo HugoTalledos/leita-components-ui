@@ -51,5 +51,25 @@ foobar.singularize('phenomena')
 />
 ```
 
+### Image Picker
+| Propiedades | Tipo | Descripción | Opciones |
+| ----------- | ---- | ----------- | -------- |
+| imageList | Array | Array de imagenes | [Buffer, url] |
+| maxSize | number | Cantidad maxima de imagenes permitidas | 5 (Por defecto) |
+| maxSizeMB | number | MB maximos permitidos por imagen | 5000000 (Por defecto) |
+| onChange | Function | Cambio del selector de imagenes | (e) => console.log("Hola mundo) |
+| multiple | boolean | indica si se permite la carga de varias imagenes | true (Por defecto) / false |
+
+### Ejemplo
+```javascript
+<ImagePicker 
+    multiple
+    maxSize={5}
+    maxSizeMB={5000000}
+    onChange={(e) => onChangeFile(e)}
+    imageList={imageList}
+    />
+```
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
