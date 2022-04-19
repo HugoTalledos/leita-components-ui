@@ -2,6 +2,7 @@ import { Theme } from './components/Theme/Theme';
 import { List, ListItem } from './components/List/List';
 import Button from './components/Button/Button';
 import ImagePicker from './components/ImagePicker/ImagePicker';
+import { ToggleButton, ToggleButtonItem } from './components/ToggleButton/ToggleButton';
 import { ChipList, ChipListItem } from './components/ChipList/ChipList';
 import { BottomNavigation, NavigationItem } from './components/BottomNavigation/BottomNavigation';
 import './App.css';
@@ -36,6 +37,10 @@ function App() {
           <SideBarItem label='algo exageradamentelargoycontinuo' icon='dots-horizontal' />
         </SideBar>
         <div className="App-header">
+        <ToggleButton label='Contactame' icon='message'>
+          <ToggleButtonItem value='facebook' icon='facebook' />
+          <ToggleButtonItem value='twitter' icon='twitter' />
+        </ToggleButton>
           <ChipList>
             <ChipListItem
               label="Categoria 1"
@@ -82,7 +87,7 @@ function App() {
               trailingIcon='chevron-right'
             />
           </List>
-          <Button disabled label='Prueba' onClick={() => console.log("HOLAAAA")} trailingIcon='account'/>
+          <Button label='Prueba' onClick={() => console.log("HOLAAAA")} trailingIcon='account'/>
           {/* <ImagePicker 
             multiple
             maxSize={5}
