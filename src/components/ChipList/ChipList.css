@@ -3,7 +3,6 @@
   gap: 1em;
   padding: 1rem;
   overflow-x: auto;
-  width: 90%;
 }
 
 .chips_container::-webkit-scrollbar {
@@ -30,7 +29,7 @@
 }
 
 .chip-list-item:active, .chip-list-item.active {
-  background-color: var(--light-gray);
+  background-color: var(--accent);
   color: var(--primary-color);
   box-shadow: none;
 }

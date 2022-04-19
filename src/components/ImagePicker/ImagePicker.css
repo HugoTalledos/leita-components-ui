@@ -88,7 +88,7 @@
 
 .thumb_slide.selected {
   filter: grayscale(80%);
-  background-color: var(--light-gray);
+  background-color: var(--accent);
 }
 
 .file-select {

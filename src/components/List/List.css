@@ -3,7 +3,6 @@
   gap: 1em;
   grid-auto-flow: dense;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-  width: 90%;
 }
 
 .list-container .container-item {
