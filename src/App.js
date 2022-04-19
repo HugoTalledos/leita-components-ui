@@ -8,6 +8,7 @@ import { BottomNavigation, NavigationItem } from './components/BottomNavigation/
 import './App.css';
 import { SideBar, SideBarItem } from './components/SideBar/SideBar';
 import { TabItem, Tabs } from './components/Tabs/Tabs';
+import { TextArea, TextField } from './components/TextField/TextField';
 
 function App() {
   const fontFamily = [
@@ -46,6 +47,8 @@ function App() {
             <TabItem label='test' value='test' active/>
             <TabItem label='test' value='test' />
           </Tabs>
+          <TextField label='Prueba' id={'prueba'}/>
+          <TextArea label='Prueba' id={'area'}/>
           <ChipList>
             <ChipListItem
               label="Categoria 1"
