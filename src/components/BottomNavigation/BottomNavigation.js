@@ -14,9 +14,11 @@ export const NavigationItem = ({
 );
 
 export const BottomNavigation = ({ children }) => (
-  <ul className='navigationBottom_container'>
-    { children}
-  </ul>);
+  <div className='navigationBottom_container'>
+    <ul className='navigationBottom_container_content'>
+      { children}
+    </ul>
+  </div>);
 
 
 BottomNavigation.protoType = {
