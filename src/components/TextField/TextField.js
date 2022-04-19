@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './TextField.css';
 
@@ -7,7 +7,7 @@ export const TextArea = ({
   value,
   type,
   onChange,
-  id
+  id,
 }) => {
   useEffect(() => {
     const input = document.getElementById(id);
@@ -16,7 +16,7 @@ export const TextArea = ({
       input.previousElementSibling.classList.add('focus');
       input.parentNode.classList.add('focus');
     };
-  
+
     input.onblur = () => {
       if (input.value.trim().length === 0) {
         input.previousElementSibling.classList.remove('top');
@@ -27,20 +27,20 @@ export const TextArea = ({
   }, [id]);
 
   return (
-  <div className='text__field'>
-    <label htmlFor={id}>
-      <span>{label}</span>
-      <textarea className='form-content' type={type} value={value} onChange={onChange} id={id} />
-    </label>
-  </div>);
-}
+    <div className="text__field">
+      <label htmlFor={id}>
+        <span>{label}</span>
+        <textarea className="form-content" type={type} value={value} onChange={onChange} id={id} />
+      </label>
+    </div>);
+};
 
 export const TextField = ({
   label = '',
   value,
   type,
   onChange,
-  id
+  id,
 }) => {
   useEffect(() => {
     const input = document.getElementById(id);
@@ -49,7 +49,7 @@ export const TextField = ({
       input.previousElementSibling.classList.add('focus');
       input.parentNode.classList.add('focus');
     };
-  
+
     input.onblur = () => {
       if (input.value.trim().length === 0) {
         input.previousElementSibling.classList.remove('top');
@@ -60,17 +60,17 @@ export const TextField = ({
   }, [id]);
 
   return (
-  <div className='text__field'>
-    <label htmlFor={id}>
-      <span>{label}</span>
-      <input type={type} value={value} onChange={onChange} id={id} />
-    </label>
-  </div>);
-}
+    <div className="text__field">
+      <label htmlFor={id}>
+        <span>{label}</span>
+        <input type={type} value={value} onChange={onChange} id={id} />
+      </label>
+    </div>);
+};
 
 TextField.protoType = {
   id: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-}
+};

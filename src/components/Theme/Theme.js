@@ -2,7 +2,7 @@ import React from 'react';
 import '@mdi/font/css/materialdesignicons.min.css';
 import PropTypes from 'prop-types';
 
-export const Theme = ({
+const Theme = ({
   children,
   backgroundColor,
   primary,
@@ -15,8 +15,8 @@ export const Theme = ({
   black,
   shadow,
   fontFamily,
-}) => {
-  return (<div>
+}) => (
+  <>
     {children}
     <style>{`
       :root {
@@ -38,9 +38,9 @@ export const Theme = ({
       body {
         background-color: ${backgroundColor};
       }
-    `}</style>
-  </div>)
-}
+    `}
+    </style>
+  </>);
 
 Theme.protoType = {
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.element)]),
@@ -56,3 +56,5 @@ Theme.protoType = {
   shadow: PropTypes.string,
   fontFamily: PropTypes.arrayOf(PropTypes.string),
 };
+
+export default Theme;

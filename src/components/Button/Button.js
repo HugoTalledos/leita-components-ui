@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import './Button.css';
 
@@ -12,9 +13,8 @@ const Button = ({
   onClick,
   style,
   trailingIcon,
-  type ='primary',
-}) => {
- return (
+  type = 'primary',
+}) => (
   <button
     type="button"
     disabled={disabled}
@@ -22,19 +22,17 @@ const Button = ({
     onClick={(e) => onClick(e)}
   >
     {
-      loading 
-      ? <span className="mdi mdi-24px mdi-loading rotate" />
-      : !trailingIcon
-        && <span className={`mdi mdi-24px mdi-${icon} ${className}`} style={style}/>
+      loading
+        ? <span className="mdi mdi-24px mdi-loading rotate" />
+        : !trailingIcon && <span className={`mdi mdi-24px mdi-${icon} ${className}`} style={style} />
     }
     {label}
     {children}
     {
       (trailingIcon && !icon)
-      && <span className={`mdi mdi-24px mdi-${trailingIcon} ${className}`} style={style}/>
+      && <span className={`mdi mdi-24px mdi-${trailingIcon} ${className}`} style={style} />
     }
   </button>);
-};
 
 Button.propTypes = {
   onClick: PropTypes.func,
@@ -44,9 +42,7 @@ Button.propTypes = {
   label: PropTypes.string,
   type: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.element)]),
-  style: PropTypes.oneOfType(
-    [PropTypes.object, PropTypes.arrayOf(PropTypes.element)]),
+  style: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.element)]),
 };
-
 
 export default Button;

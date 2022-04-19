@@ -3,12 +3,9 @@ import PropTypes from 'prop-types';
 import './ChipList.css';
 
 const ChipListLoading = () => (
-  <button
-    type="button"
-    className='chip-list-item'
-  >
-    <div className='chip-img-container shimmer' />
-</button>);
+  <button type="button" className="chip-list-item">
+    <div className="chip-img-container shimmer" />
+  </button>);
 
 export const ChipListItem = ({
   label = '',
@@ -16,28 +13,27 @@ export const ChipListItem = ({
   className = '',
   onClick,
   active = false,
-  picture
+  picture,
 }) => (
   <button
     key={value}
     type="button"
     className={`chip-list-item ${className} ${active ? 'active' : ''}`}
-    onClick={(e) => onClick ? onClick({ ...e, value }) : null}
+    onClick={(e) => (onClick ? onClick({ ...e, value }) : null)}
   >
-    { picture && 
-      <div className='chip-img-container'>
-        <img src={picture} alt={`item_${value}`} />
-      </div>
-    }
-    <p className='chip-label'>{label}</p>
+    { picture
+      && (
+        <div className="chip-img-container">
+          <img src={picture} alt={`item_${value}`} />
+        </div>)}
+    <p className="chip-label">{label}</p>
   </button>);
 
 export const ChipList = ({ children, loading }) => (
-  <div className='chips_container'>
+  <div className="chips_container">
     { loading
       ? [1, 2, 3].map(() => <ChipListLoading />)
-      : children
-    }
+      : children}
   </div>
 );
 
@@ -54,5 +50,4 @@ ChipListItem.protoType = {
   className: PropTypes.string,
   active: PropTypes.bool,
   picture: PropTypes.string,
-}
-
+};

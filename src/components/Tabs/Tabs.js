@@ -13,14 +13,15 @@ export const TabItem = ({
     key={value}
     type="button"
     className={`tab-list-item ${className} ${active ? 'active' : ''}`}
-    onClick={(e) => onClick ? onClick({ ...e, value }) : null}
+    onClick={(e) => (onClick ? onClick({ ...e, value }) : null)}
+    onKeyDown={(e) => (onClick ? onClick({ ...e, value }) : null)}
   >
-    <p className='tab-label'>{label}</p>
+    <p className="tab-label">{label}</p>
   </button>);
 
 export const Tabs = ({ children }) => (
-  <div className='tabs_container'>
-    {  children}
+  <div className="tabs_container">
+    { children }
   </div>
 );
 
@@ -35,5 +36,4 @@ TabItem.protoType = {
   className: PropTypes.string,
   active: PropTypes.bool,
   picture: PropTypes.string,
-}
-
+};

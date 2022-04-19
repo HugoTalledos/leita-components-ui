@@ -1,13 +1,20 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import './ToggleButton.css';
 
-export const ToggleButtonItem = ({ icon, value, active, onClick }) => (
+export const ToggleButtonItem = ({
+  icon = '',
+  value = '',
+  active = false,
+  onClick,
+}) => (
   <button
+    type="button"
     className={`ToggleButtonItem ${active ? 'active' : ''}`}
-    onClick={(e) => onClick ? onClick({ ...e, value }) : null}
+    onClick={(e) => (onClick ? onClick({ ...e, value }) : null)}
   >
     <span className={`mdi mdi-24px mdi-${icon}`} />
-  </button>)
+  </button>);
 
 export const ToggleButton = ({
   children,
@@ -32,4 +39,3 @@ ToggleButton.protoType = {
   icon: PropTypes.string,
   label: PropTypes.string,
 };
-

@@ -11,16 +11,21 @@ export const SideBarItem = ({ label, icon }) => (
 
 export const SideBar = ({ children, title }) => {
   const [view, setView] = useState(false);
-  return (<header>
-    <div className={'menu-navbar'}>
-      <span className='btn-menu' onClick={() => {console.log('hola?'); setView(!view)}}>
-        <span className={`mdi mdi-24px mdi-${view ? 'backburger' : 'menu'}`} /> {title}
-      </span>
-    </div>
-    <ul className={`view-${view}`}>
-      {children}
-    </ul>
-  </header>);
+  return (
+    <header>
+      <div className="menu-navbar">
+        <span
+          className="btn-menu"
+          onClick={() => setView(!view)}
+          onKeyDown={() => setView(!view)}
+        >
+          <span className={`mdi mdi-24px mdi-${view ? 'backburger' : 'menu'}`} /> {title}
+        </span>
+      </div>
+      <ul className={`view-${view}`}>
+        {children}
+      </ul>
+    </header>);
 };
 
 SideBarItem.propTypes = {

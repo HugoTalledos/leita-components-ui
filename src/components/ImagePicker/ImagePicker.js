@@ -26,7 +26,6 @@ const ImagePicker = ({
     let error;
     if (!file.type.includes('image')) error = 'El archivo seleccionado no es una imagen';
     if (file.size > maxSizeMB) error = 'Imagen demaciado grande (maximo 1MB)';
-  
     return { error };
   };
 
@@ -40,7 +39,7 @@ const ImagePicker = ({
       readerURL.readAsDataURL(file);
     },
   );
-  
+
   const readBuffer = async (file) => new Promise(
     (resolve, reject) => {
       const readerBuffer = new FileReader();
@@ -51,14 +50,13 @@ const ImagePicker = ({
       readerBuffer.readAsArrayBuffer(file);
     },
   );
-  
+
   const readFileAsync = async (file) => {
     const url = await readURL(file);
     const buffer = await readBuffer(file);
     const uint8View = new Uint8Array(buffer);
     return [Buffer.from(uint8View), url];
   };
-
 
   useEffect(() => {
     setImage(imageList.length > 0 && imageList[0]);
@@ -67,7 +65,6 @@ const ImagePicker = ({
     if (isActive.length !== 0) setIsActive([]);
     // eslint-disable-next-line
   }, [imageList]);
-
 
   const switchImage = (img, key) => {
     setImage(img);
@@ -157,7 +154,13 @@ const ImagePicker = ({
         <div className="slides">
           {
             (multiple && imageListThumbs.length !== 0)
-            && <span className={'mdi mdi-24px mdi-close remove_slide'} onClick={() => removeImage(imageKey)} />
+            && (
+              <span
+                className="mdi mdi-24px mdi-close remove_slide"
+                onClick={() => removeImage(imageKey)}
+                onKeyDown={() => removeImage(imageKey)}
+              />
+            )
           }
           { image && <img src={image} alt="Main" /> }
         </div>
