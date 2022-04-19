@@ -1,0 +1,69 @@
+header {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 10000000;
+}
+
+.menu-navbar .btn-menu {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  padding: 15px;
+  background: var(--light);
+  color: var(--dark);
+  box-shadow: 0 5px 10px 0 var(--shadow);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+header ul {
+  display: block;
+  position: fixed;
+  width: 300px;
+  max-width: 280px;
+  list-style: none;
+  height: 75vh;
+  padding: 2em;
+  margin-top: 15px;
+  border-radius: 10px;
+  background: var(--light);
+  box-shadow: 0 5px 10px 0 var(--shadow);
+  z-index: 10000000;
+}
+
+.view-true {
+  left: 10px;
+  transition: all .5s;
+}
+
+.view-false {
+  left: -100%;
+  transition: left .5s ease-in-out;
+}
+
+.menu-navbar .menu {
+  float: right;
+  height: 2em;
+  width: 2em;
+}
+
+header ul.view-true li {
+  display: flex;
+  gap: 1em;
+  justify-content: flex-start;
+  align-items: center;
+  height: 50px;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+header ul.view-true li:active,
+header ul.view-true li:hover {
+  background-color: var(--accent);
+  color: var(--primary-color);
+  border-radius: 10px;
+}
+
+
+
