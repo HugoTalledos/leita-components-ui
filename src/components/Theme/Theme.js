@@ -1,5 +1,4 @@
 import React from 'react';
-import '@mdi/font/css/materialdesignicons.min.css';
 import PropTypes from 'prop-types';
 
 const Theme = ({
