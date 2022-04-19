@@ -7,6 +7,7 @@ import { ChipList, ChipListItem } from './components/ChipList/ChipList';
 import { BottomNavigation, NavigationItem } from './components/BottomNavigation/BottomNavigation';
 import './App.css';
 import { SideBar, SideBarItem } from './components/SideBar/SideBar';
+import { TabItem, Tabs } from './components/Tabs/Tabs';
 
 function App() {
   const fontFamily = [
@@ -37,10 +38,14 @@ function App() {
           <SideBarItem label='algo exageradamentelargoycontinuo' icon='dots-horizontal' />
         </SideBar>
         <div className="App-header">
-        <ToggleButton label='Contactame' icon='message'>
-          <ToggleButtonItem value='facebook' icon='facebook' />
-          <ToggleButtonItem value='twitter' icon='twitter' />
-        </ToggleButton>
+          <ToggleButton label='Contactame' icon='message'>
+            <ToggleButtonItem value='facebook' icon='facebook' />
+            <ToggleButtonItem value='twitter' icon='twitter' />
+          </ToggleButton>
+          <Tabs>
+            <TabItem label='test' value='test' active/>
+            <TabItem label='test' value='test' />
+          </Tabs>
           <ChipList>
             <ChipListItem
               label="Categoria 1"
