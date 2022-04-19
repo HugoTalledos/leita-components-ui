@@ -5,6 +5,7 @@ import ImagePicker from './components/ImagePicker/ImagePicker';
 import { ChipList, ChipListItem } from './components/ChipList/ChipList';
 import { BottomNavigation, NavigationItem } from './components/BottomNavigation/BottomNavigation';
 import './App.css';
+import { SideBar, SideBarItem } from './components/SideBar/SideBar';
 
 function App() {
   const fontFamily = [
@@ -29,7 +30,12 @@ function App() {
       shadow={'#9b9b9b96'}
       fontFamily={fontFamily}>
       <div className="App">
-        <header className="App-header">
+        <SideBar title='test'>
+          <SideBarItem label='test' icon='account' />
+          <SideBarItem label='test2' icon='menu' />
+          <SideBarItem label='algo exageradamentelargoycontinuo' icon='dots-horizontal' />
+        </SideBar>
+        <div className="App-header">
           <ChipList>
             <ChipListItem
               label="Categoria 1"
@@ -84,7 +90,7 @@ function App() {
             onChange={(e) => onChangeFile(e)}
             imageList={imageList}
           /> */}
-        </header>
+        </div>
         <BottomNavigation>
           <NavigationItem icon="view-list" label="List" />
           <NavigationItem icon="plus" label="Add" />
