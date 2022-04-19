@@ -1,0 +1,25 @@
+.tabs_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 1em;
+  background-color: var(--accent);
+  border-radius: 10px;
+  padding: 0.5em;
+}
+
+.tab-list-item {
+  width: 100%;
+  padding: 1em;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: all .2s ease-in-out;
+}
+
+.tab-list-item:active, .tab-list-item.active {
+  background-color: var(--light);
+  color: var(--primary-color);
+  box-shadow: 0 7px 10px 0 var(--shadow);
+}
