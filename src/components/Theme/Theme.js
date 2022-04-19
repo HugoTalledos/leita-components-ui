@@ -18,7 +18,7 @@ export const Theme = ({
 }) => {
   return (<div>
     {children}
-    <style jsx global>{`
+    <style>{`
       :root {
         --primary-color: ${primary};
         --primary-dark: ${darkPrimary};
