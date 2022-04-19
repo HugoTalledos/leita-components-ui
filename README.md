@@ -3,6 +3,10 @@
 Ejercicio de creación de libreria de componentes para React JS
 
 ## Installation (Próximamente)
+Para usar los iconos instalar @mdi/font
+```bash
+npm install @mdi/font
+```
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 
