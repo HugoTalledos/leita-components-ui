@@ -44,4 +44,15 @@ export const Theme = ({
 
 Theme.protoType = {
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.element)]),
+  backgroundColor: PropTypes.string,
+  primary: PropTypes.string,
+  darkPrimary: PropTypes.string,
+  accent: PropTypes.string,
+  success: PropTypes.string,
+  warning: PropTypes.string,
+  danger: PropTypes.string,
+  white: PropTypes.string,
+  black: PropTypes.string,
+  shadow: PropTypes.string,
+  fontFamily: PropTypes.arrayOf(PropTypes.string),
 };
