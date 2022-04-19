@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Buffer } from 'buffer';
 import PropTypes from 'prop-types';
+import MDIcon from '../MDIcon/MDIcon';
 import { events } from '../../Utils/constants';
 import './ImagePicker.css';
 
@@ -154,12 +155,12 @@ const ImagePicker = ({
         <div className="slides">
           {
             (multiple && imageListThumbs.length !== 0)
-            && (
-              <span
-                className="mdi mdi-24px mdi-close remove_slide"
-                onClick={() => removeImage(imageKey)}
-                onKeyDown={() => removeImage(imageKey)}
-              />
+            && (<MDIcon
+              name="close"
+              className="remove_slide"
+              onClick={() => removeImage(imageKey)}
+              onKeyDown={() => removeImage(imageKey)}
+            />
             )
           }
           { image && <img src={image} alt="Main" /> }

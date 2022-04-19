@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import MDIcon from '../MDIcon/MDIcon';
 import './BottomNavigation.css';
 
 export const NavigationItem = ({
@@ -8,7 +9,7 @@ export const NavigationItem = ({
   active,
 }) => (
   <li className={`navigationBottom_container__item ${active ? 'active' : ''}`}>
-    <span className={`mdi mdi-24px mdi-${icon}`} />
+    <MDIcon name={icon} />
     <p>{label}</p>
   </li>
 );

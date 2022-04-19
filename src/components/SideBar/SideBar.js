@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import MDIcon from '../MDIcon/MDIcon';
 import './SideBar.css';
 
 export const SideBarItem = ({ label, icon }) => (
   <li>
-    <span className={`mdi mdi-24px mdi-${icon}`} />
+    <MDIcon name={icon} />
     <p>{label}</p>
   </li>
 );
@@ -19,7 +20,7 @@ export const SideBar = ({ children, title }) => {
           onClick={() => setView(!view)}
           onKeyDown={() => setView(!view)}
         >
-          <span className={`mdi mdi-24px mdi-${view ? 'backburger' : 'menu'}`} /> {title}
+          <MDIcon name={view ? 'backburger' : 'menu'} /> {title}
         </span>
       </div>
       <ul className={`view-${view}`}>

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import MDIcon from '../MDIcon/MDIcon';
 import './List.css';
 
 const LoadingItem = () => (
@@ -38,7 +39,7 @@ export const ListItem = ({
       <h5 className="item-title">{ label }</h5>
       <p className="item-price">{ description }</p>
     </div>
-    <span className={`mdi mdi-24px mdi-${trailingIcon} trailingIcon_list`} />
+    <MDIcon name={trailingIcon} className="trailingIcon_list" />
   </div>
 );
 

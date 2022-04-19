@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import MDIcon from '../MDIcon/MDIcon';
 import './Button.css';
 
 const Button = ({
@@ -23,14 +24,14 @@ const Button = ({
   >
     {
       loading
-        ? <span className="mdi mdi-24px mdi-loading rotate" />
-        : !trailingIcon && <span className={`mdi mdi-24px mdi-${icon} ${className}`} style={style} />
+        ? <MDIcon name="loading" className="rotate" />
+        : !trailingIcon && <MDIcon name={icon} className={className} style={style} />
     }
     {label}
     {children}
     {
       (trailingIcon && !icon)
-      && <span className={`mdi mdi-24px mdi-${trailingIcon} ${className}`} style={style} />
+      && <MDIcon name={trailingIcon} className={className} style={style} />
     }
   </button>);
 

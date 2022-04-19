@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Theme from './components/Theme/Theme';
 import { List, ListItem } from './components/List/List';
 import Button from './components/Button/Button';
-// import ImagePicker from './components/ImagePicker/ImagePicker';
+import ImagePicker from './components/ImagePicker/ImagePicker';
 import { ToggleButton, ToggleButtonItem } from './components/ToggleButton/ToggleButton';
 import { ChipList, ChipListItem } from './components/ChipList/ChipList';
 import { BottomNavigation, NavigationItem } from './components/BottomNavigation/BottomNavigation';
@@ -24,6 +24,22 @@ const App = () => {
     'Droid Sans',
     'Helvetica Neue',
   ];
+  const [imageList, setImageList] = useState([]);
+  const onChangeFile = (e) => {
+    const {
+      errors = [], imageList = [], isExceeded,
+    } = e;
+
+    if (errors.length > 0) {
+      console.log(errors);
+    }
+
+    if (isExceeded) {
+      console.log(errors);
+    }
+
+    if (imageList.length > 0) setImageList(imageList.map((image) => image));
+  };
 
   return (
     <Theme
@@ -100,13 +116,13 @@ const App = () => {
             />
           </List>
           <Button label="Prueba" onClick={() => console.log('HOLAAAA')} trailingIcon="account" />
-          {/* <ImagePicker
+          <ImagePicker
             multiple
             maxSize={5}
             maxSizeMB={5000000}
             onChange={(e) => onChangeFile(e)}
             imageList={imageList}
-          /> */}
+          />
         </div>
         <BottomNavigation>
           <NavigationItem icon="view-list" label="List" />
