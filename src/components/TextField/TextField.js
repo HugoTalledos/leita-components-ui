@@ -57,7 +57,7 @@ export const TextField = ({
       input.previousElementSibling.classList.remove('focus');
       input.parentNode.classList.remove('focus');
     };
-  }, [id]);
+  }, []);
 
   return (
     <div className="text__field">

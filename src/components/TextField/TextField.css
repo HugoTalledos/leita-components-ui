@@ -24,7 +24,7 @@
 .text__field label span {
   color: var(--primary-dark);
   position: absolute;
-  top: .5em;
+  top: 5px;
   left: 2.5em;
   transition: all .2s ease-in-out;
 }
