@@ -26,8 +26,8 @@ export const ListItem = ({
   <div
     className={`container-item ${className}`}
     style={{ cursor: onClick ? 'pointer' : 'default' }}
-    onClick={(e) => (onClick ? onClick({ ...e, value }) : e.preventDefault())}
-    onKeyDown={(e) => (onClick ? onClick({ ...e, value }) : e.preventDefault())}
+    onClick={(e) => (onClick ? onClick({ ...e, value }) : null)}
+    onKeyDown={(e) => (onClick ? onClick({ ...e, value }) : null)}
     key={value}
   >
     { picture
