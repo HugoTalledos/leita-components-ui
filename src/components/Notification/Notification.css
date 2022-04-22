@@ -1,0 +1,92 @@
+.notification-container {
+  position: fixed;
+  top: 15px;
+  width: 100%;
+  background: var(--glass-default-notify);
+  backdrop-filter: blur( 15px );
+  -webkit-backdrop-filter: blur( 15px );
+  box-shadow: 0 5px 15px 0 var(--shadow);
+  z-index: 100000000;
+  border-radius: 10px;
+  color: var(--dark);
+  transition: 0.3s all ease-in-out;
+  overflow: hidden;
+}
+
+.notification-container.not-show {
+  transition: 0.3s all ease-in-out;
+  display: none;
+}
+
+.notification-content {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  align-items: center;
+}
+
+.notification-container__icon {
+  padding: 1.3rem;
+}
+
+.notification-container__text {
+  display: flex;
+  padding: 1rem 2rem 1rem 1rem;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.notification-container__text h5, .notification-container__text p {
+  text-align: left;
+  margin: 0;
+}
+
+.notification-container__text h5 {
+  font-size: 15px;
+}
+
+.notification-container__text p {
+  font-size: small;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.notification-container__icon.success::before,
+.notification-container__icon.danger::before,
+.notification-container__icon.warning::before {
+  content: "";
+  width: 35%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.5;
+}
+
+.notification-container__icon.success,
+.notification-container__text.success h5 {
+  color: var(--success);
+}
+
+.notification-container__icon.success::before {
+  background: linear-gradient(90deg, var(--success) 0%, rgba(255,255,255,0) 70%);
+}
+
+
+.notification-container__icon.danger,
+.notification-container__text.danger h5 {
+  color: var(--danger);
+}
+
+.notification-container__icon.danger::before {
+  background: linear-gradient(90deg, var(--danger) 0%, rgba(255,255,255,0) 70%);
+}
+
+.notification-container__icon.warning,
+.notification-container__text.warning h5 {
+  color: var(--warning);
+}
+
+.notification-container__icon.warning::before {
+  background: linear-gradient(90deg, var(--warning) 0%, rgba(255,255,255,0) 70%);
+}
