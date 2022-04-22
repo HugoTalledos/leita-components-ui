@@ -1,21 +1,21 @@
 .notification-container {
   position: fixed;
-  top: 15px;
+  top: 10px;
   width: 100%;
   background: var(--glass-default-notify);
   backdrop-filter: blur( 15px );
   -webkit-backdrop-filter: blur( 15px );
   box-shadow: 0 5px 15px 0 var(--shadow);
   z-index: 100000000;
-  border-radius: 10px;
+  border-radius: 5px;
   color: var(--dark);
-  transition: 0.3s all ease-in-out;
   overflow: hidden;
+  transition: top .3s ease-in-out;
 }
 
 .notification-container.not-show {
-  transition: 0.3s all ease-in-out;
-  display: none;
+  top: -50%;
+  transition: top .3s ease-in-out;
 }
 
 .notification-content {
