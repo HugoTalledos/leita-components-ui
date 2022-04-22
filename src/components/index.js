@@ -9,6 +9,7 @@ import { Tabs, TabItem } from './Tabs/Tabs';
 import { TextField, TextArea } from './TextField/TextField';
 import Theme from './Theme/Theme';
 import { ToggleButton, ToggleButtonItem } from './ToggleButton/ToggleButton';
+import Notification from './Notification/Notification';
 
 export {
   BottomNavigation,
@@ -20,6 +21,7 @@ export {
   List,
   ListItem,
   MDIcon,
+  Notification,
   SideBar,
   SideBarItem,
   Tabs,
