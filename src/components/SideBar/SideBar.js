@@ -3,8 +3,12 @@ import PropTypes from 'prop-types';
 import MDIcon from '../MDIcon/MDIcon';
 import './SideBar.css';
 
-export const SideBarItem = ({ label, icon }) => (
-  <li>
+export const SideBarItem = ({ label, icon, onClick }) => (
+  <li
+    role="presentation"
+    onClick={(e) => (onClick ? onClick(e) : null)}
+    onKeyDown={(e) => (onClick ? onClick(e) : null)}
+  >
     <MDIcon name={icon} />
     <p>{label}</p>
   </li>
@@ -32,6 +36,7 @@ export const SideBar = ({ children, title }) => {
 SideBarItem.propTypes = {
   label: PropTypes.string,
   icon: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 SideBar.protoType = {
