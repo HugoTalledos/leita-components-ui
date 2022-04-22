@@ -316,7 +316,7 @@ Permite ocultar opciones en un unico boton.
 | `active` | `true \| false` | Indica si el elemento se encuentra activado |
 
 ### MDIcon<a name="mdicon"></a>
-Permite mantener informado al usuario de las acciones que realiza.
+Agerga iconos para reforzar el mensaje.
 ```javascript
     import MDIcon from 'leita-components-ui/MDIcon'
 ```
