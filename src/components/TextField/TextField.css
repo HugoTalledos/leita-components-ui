@@ -1,47 +1,60 @@
-.text__field {
-  padding-top: 10px;
+.leita-text__field, .leita-select__field {
+  margin: 10px;
 }
 
-.text__field label
-{
+.leita-text__field label, .leita-select__field label {
   display: block;
   width: 100%;
   background-color: var(--accent);
   border-radius: 5px;
-  padding: .5em 2em;
   position: relative;
   box-sizing: border-box;
+  padding: .5em 2.2em;
 }
 
-.text__field label input, textarea.form-content {
+.leita-text__field label input,
+textarea.form-content,
+.leita-select__field--select  {
   display: block;
   width: 100%;
   border: none;
-  background-color: var(--ligth);
+  background-color: var(--accent);
   outline: none;
 }
 
-.text__field label span {
+.leita-text__field label span,
+.leita-select__field span {
   color: var(--primary-dark);
   position: absolute;
   top: 5px;
-  left: 2.5em;
+  left: 3em;
   transition: all .2s ease-in-out;
+}
+
+.leita-text__field label span.icon,
+.leita-select__field label span.icon {
+  position: absolute;
+  top: 8px;
+  left: .6em;
+  opacity: .7;
 }
 
 /* focus*/
 
-.text__field label.focus {
+.leita-text__field label.focus,
+.leita-select__field label.focus {
   border-bottom: 2px solid var(--primary-color);
 }
 
-.text__field label span.focus {
+.leita-text__field label span.focus,
+.leita-select__field span.focus {
   border-color: var(--primary-color);
 }
 
 /* Top */
 
-.text__field label span.top {
+.leita-text__field label span.top,
+.leita-select__field label span.top {
   left: 1em;
   top: -10px;
   font-size: 12px;
@@ -54,4 +67,10 @@ textarea.form-content {
   min-height: 150px;
   max-width: 100%;
   min-width: 100%;
+}
+
+
+.leita-text__field label input:disabled,
+textarea.form-content:disabled {
+  opacity: .6;
 }
