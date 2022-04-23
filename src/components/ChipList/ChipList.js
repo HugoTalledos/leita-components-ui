@@ -40,7 +40,6 @@ export const ChipList = ({ children, loading }) => (
 ChipList.protoType = {
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.element)]),
   loading: PropTypes.Boolean,
-  title: PropTypes.string,
 };
 
 ChipListItem.protoType = {
