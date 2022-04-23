@@ -25,6 +25,7 @@ Para usar los iconos instalar @mdi/font
 - [Button](#button)
 - [TextField](#textfield)
 - [TextArea](#textarea)
+- [Select](#select)
 - [List](#list)
 - [ChipList](#chiplist)
 - [Tabs](#tabs)
@@ -35,7 +36,7 @@ Para usar los iconos instalar @mdi/font
 ### Theme<a name="theme"></a>
 El módulo Tema abarca completamente el uso de variables CSS para la tematización en tiempo de ejecución. Esto permite algunos casos de uso realmente potentes, como un modo oscuro incorporado o  paletas personalizadas para sus clientes.
 ```javascript
-    import Theme from 'leita-components-ui/Theme'
+    import { Theme } from 'leita-components-ui'
 ```
 ```jsx
     <Theme primary="#2274A5" fontFamily={['Raleway', 'BlinkMacSystemFont']}>
@@ -61,7 +62,7 @@ El módulo Tema abarca completamente el uso de variables CSS para la tematizaci�
 ### SideBar<a name="sidebar"></a>
 Barra lateral desplegable
 ```javascript
-    import { SideBar, SideBarItem } from 'leita-components-ui/SideBar'
+    import { SideBar, SideBarItem } from 'leita-components-ui'
 ```
 ```jsx
     <SideBar title="MyApp">
@@ -84,7 +85,7 @@ Barra lateral desplegable
 ### BottomNavigation<a name="bottomNavigation"></a>
 Barra inferior de opciones
 ```javascript
-    import { BottomNavigation, NavigationItem } from 'leita-components-ui/Navigation'
+    import { BottomNavigation, NavigationItem } from 'leita-components-ui'
 ```
 ```jsx
     <BottomNavigation title="MyApp">
@@ -108,7 +109,7 @@ Barra inferior de opciones
 ### Button<a name="button"></a>
 Comunica la accion que se producirá cuando el usuario lo toque.
 ```javascript
-    import Button from 'leita-components-ui/Button'
+    import { Button } from 'leita-components-ui'
 ```
 ```jsx
     <Button label="Prueba" onClick={() => console.log('Hello')} trailingIcon="account" />
@@ -129,7 +130,7 @@ Comunica la accion que se producirá cuando el usuario lo toque.
 ### TextField<a name="textfield"></a>
 Permite a los usuarios ingresar editar y seleccionar texto.
 ```javascript
-    import { TextField } from 'leita-components-ui/Fields'
+    import { TextField } from 'leita-components-ui'
 ```
 ```jsx
     <TextField label="Prueba" id="prueba" />
@@ -140,12 +141,14 @@ Permite a los usuarios ingresar editar y seleccionar texto.
 | `label` | `string` | Texto especificado como etiqueta. |
 | `value` | `string \| null` | Valor de entrada |
 | `type` | `html values` | Valores que puede recibir el textfield. |
+| `icon` | `String \| null` | Icono perteneciente a @mdi/font |
+| `disabled` | `true \| false` | Hace que el textfield se inhabilite. |
 | `id` | `String` | Identificador unico del textfield. |
 
 ### TextArea<a name="textarea"></a>
 Permite a los usuarios ingresar editar y seleccionar texto.
 ```javascript
-    import { TextArea } from 'leita-components-ui/Fields'
+    import { TextArea } from 'leita-components-ui'
 ```
 ```jsx
     <TextArea label="Prueba" id="prueba" />
@@ -156,12 +159,37 @@ Permite a los usuarios ingresar editar y seleccionar texto.
 | `label` | `string` | Texto especificado como etiqueta. |
 | `value` | `string \| null` | Valor de entrada. |
 | `type` | `html values` | Valores que puede recibir el textarea. |
+| `icon` | `String \| null` | Icono perteneciente a @mdi/font |
+| `disabled` | `true \| false` | Hace que el textarea se inhabilite. |
+| `id` | `String` | Identificador unico del textarea. |
+
+### Select<a name="select"></a>
+Permite a los usuarios seleccionar opciones listadas.
+```javascript
+    import { Select } from 'leita-components-ui'
+```
+```jsx
+    <Select
+        id={"comida"}
+        label="Comida"
+        options={[{ label: 'pizza', value: '1'}, { label: 'hotdog', value: '2'}]}
+        value="1"
+    />
+```
+#### Props
+| Nombre | Tipo | Descripción |
+| ----------- | ---- | ----------- |
+| `label` | `string` | Texto especificado como etiqueta. |
+| `value` | `string \| null` | Valor de entrada. |
+| `options` | `[{label, value}, {label, value}]` | Opciones a listar por el componente. |
+| `disabled` | `true \| false` | Hace que el textarea se inhabilite. |
+| `icon` | `String \| null` | Icono perteneciente a @mdi/font |
 | `id` | `String` | Identificador unico del textarea. |
 
 ### List<a name="list"></a>
 Indices verticales continuos.
 ```javascript
-    import { List, ListItem } from 'leita-components-ui/List'
+    import { List, ListItem } from 'leita-components-ui'
 ```
 ```jsx
     <List loading>
@@ -193,7 +221,7 @@ Indices verticales continuos.
 ### ChipList<a name="chiplist"></a>
 Lista horizontal de tarjetas.
 ```javascript
-    import { ChipList, ChipListItem } from 'leita-components-ui/List'
+    import { ChipList, ChipListItem } from 'leita-components-ui'
 ```
 ```jsx
     <ChipList loading>
@@ -224,7 +252,7 @@ Lista horizontal de tarjetas.
 ### Tabs<a name="tabs"></a>
 Permita explorar y cambiar entre vistas de manera sencilla.
 ```javascript
-    import { Tabs, TabItem } from 'leita-components-ui/Tabs'
+    import { Tabs, TabItem } from 'leita-components-ui'
 ```
 ```jsx
     <Tabs>
@@ -248,7 +276,7 @@ Permita explorar y cambiar entre vistas de manera sencilla.
 ### Notification<a name="notification"></a>
 Permite mantener informado al usuario de las acciones que realiza.
 ```javascript
-    import Notification from 'leita-components-ui/Notification'
+    import { Notification } from 'leita-components-ui'
 ```
 ```jsx
     <Notification 
@@ -269,7 +297,7 @@ Permite mantener informado al usuario de las acciones que realiza.
 
 ### ImagePicker<a name="imagepicker"></a>
 ```javascript
-    import ImagePicker from 'leita-components-ui/ImagePicker'
+    import { ImagePicker } from 'leita-components-ui'
 ```
 ```jsx
     <ImagePicker
@@ -292,7 +320,7 @@ Permite mantener informado al usuario de las acciones que realiza.
 ### ToggleButton<a name="togglebutton"></a>
 Permite ocultar opciones en un unico boton.
 ```javascript
-    import { ToggleButton, ToggleButtonItem } from 'leita-components-ui/Button'
+    import { ToggleButton, ToggleButtonItem } from 'leita-components-ui'
 ```
 ```jsx
     <ToggleButton label="Contactame" icon="message">
@@ -318,7 +346,7 @@ Permite ocultar opciones en un unico boton.
 ### MDIcon<a name="mdicon"></a>
 Agerga iconos para reforzar el mensaje.
 ```javascript
-    import MDIcon from 'leita-components-ui/MDIcon'
+    import { MDIcon } from 'leita-components-ui'
 ```
 ```jsx
     <MDIcon name="loading" className="rotate" />
