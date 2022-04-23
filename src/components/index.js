@@ -10,9 +10,11 @@ import { TextField, TextArea } from './TextField/TextField';
 import Theme from './Theme/Theme';
 import { ToggleButton, ToggleButtonItem } from './ToggleButton/ToggleButton';
 import Notification from './Notification/Notification';
+import Select from './Select/Select';
 
 export {
   BottomNavigation,
+  Select,
   NavigationItem,
   Button,
   ChipList,
