@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { NotificationProps } from './Notification.types';
 import MDIcon from '../MDIcon/MDIcon';
-import './Notification.css';
+import styles from './Notification.module.css';
 
 const Notification: FC<NotificationProps> = ({
   text = '',
@@ -11,12 +11,12 @@ const Notification: FC<NotificationProps> = ({
   icon = '',
 }) => (
   <div>
-    <div className={`notification-container ${show ? '' : 'not-show'}`}>
-      <div className="notification-content">
-        <div className={`notification-container__icon ${type}`}>
+    <div className={`${styles['notification-container']} ${show ? '' : styles['not-show']}`}>
+      <div className={styles['notification-content']}>
+        <div className={`${styles['notification-container__icon']} ${type}`}>
           <MDIcon name={icon} />
         </div>
-        <div className={`notification-container__text ${type}`}>
+        <div className={`${styles['notification-container__text']} ${type}`}>
           <h5>{text}</h5>
           <p>{description}</p>
         </div>
