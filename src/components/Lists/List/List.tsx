@@ -4,13 +4,13 @@ import { ListProps, ItemProps } from '../Lists.types';
 import styles from './List.module.css';
 
 const LoadingItem = () => (
-  <div className={styles["container-item"]}>
-    <div className={styles["container_image shimmer"]} />
-    <div className={styles["item_description"]}>
-      <h5 className={styles["item-title loading shimmer"]}> </h5>
-      <p className={styles["item-price loading shimmer"]} />
+  <div className={styles['container-item']}>
+    <div className={`${styles['container_image']} ${styles.shimmer}`} />
+    <div className={styles['item_description']}>
+      <h5 className={`${styles['item-title']} ${styles.loading} ${styles.shimmer}`}> </h5>
+      <p className={`${styles['item-price']} ${styles.loading} ${styles.shimmer}`} />
     </div>
-    <span className={`${styles['trailingIcon_list']} ${styles.loading} ${styles.shimmer}"`} />
+    <span className={`${styles['trailingIcon_list']} ${styles.loading} ${styles.shimmer}`} />
   </div>
 );
 
