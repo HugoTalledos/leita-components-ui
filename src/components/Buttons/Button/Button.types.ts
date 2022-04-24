@@ -1,6 +1,6 @@
-import React, { MouseEventHandler } from "react";
+import React, { MouseEventHandler, HTMLProps } from "react";
 
-export interface ButtonProps {
+export interface ButtonProps extends HTMLProps<HTMLButtonElement> {
   children?: React.ReactNode,
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined,
   icon?: string,

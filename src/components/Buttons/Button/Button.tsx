@@ -15,14 +15,12 @@ const Button: FC<ButtonProps> = ({
   style,
   trailingIcon,
   type = "primary",
-  ...props
 }) => (
   <button
     type="button"
     disabled={disabled}
     className={`${styles.btn} ${styles[`btn-${type}`]} ${fullWidth ? styles['full-width'] : ''}`}
     onClick={onClick || undefined}
-    {...props}
   >
     {
       loading
