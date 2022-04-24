@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { ListProps, ChipProps } from '../Lists.types';
-import './ChipList.css';
+import styles from './ChipList.module.css';
 
 const ChipListLoading = () => (
-  <button type="button" className="chip-list-item">
-    <div className="chip-img-container shimmer" />
+  <button type="button" className={styles['chip-list-item']}>
+    <div className={`${styles['chip-img-container']} ${styles.shimmer}`} />
   </button>);
 
 export const ChipListItem: FC<ChipProps> = ({
@@ -19,19 +19,19 @@ export const ChipListItem: FC<ChipProps> = ({
     key={value}
     type="button"
     id={value}
-    className={`chip-list-item ${className} ${active ? 'active' : ''}`}
+    className={`${styles['chip-list-item']} ${className} ${active ? styles.active : ''}`}
     onClick={onClick || undefined}
   >
     { picture
       && (
-        <div className="chip-img-container">
+        <div className={styles['chip-img-container']}>
           <img src={picture} alt={`item_${value}`} />
         </div>)}
-    <p className="chip-label">{label}</p>
+    <p className={styles['chip-label']}>{label}</p>
   </button>);
 
 export const ChipList: FC<ListProps> = ({ children, loading }) => (
-  <div className="chips_container">
+  <div className={styles['chips_container']}>
     { loading
       ? [1, 2, 3].map(() => <ChipListLoading />)
       : children}

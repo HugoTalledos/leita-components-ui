@@ -1,16 +1,16 @@
 import React, { FC, KeyboardEventHandler } from 'react';
 import MDIcon from '../../MDIcon/MDIcon';
 import { ListProps, ItemProps } from '../Lists.types';
-import './List.css';
+import styles from './List.module.css';
 
 const LoadingItem = () => (
-  <div className="container-item">
-    <div className="container_image shimmer" />
-    <div className="item_description">
-      <h5 className="item-title loading shimmer"> </h5>
-      <p className="item-price loading shimmer" />
+  <div className={styles["container-item"]}>
+    <div className={styles["container_image shimmer"]} />
+    <div className={styles["item_description"]}>
+      <h5 className={styles["item-title loading shimmer"]}> </h5>
+      <p className={styles["item-price loading shimmer"]} />
     </div>
-    <span className="trailingIcon_list loading shimmer" />
+    <span className={`${styles['trailingIcon_list']} ${styles.loading} ${styles.shimmer}"`} />
   </div>
 );
 
@@ -25,26 +25,26 @@ export const ListItem: FC<ItemProps> = ({
 }) => (
   <div
     role="button"
-    className={`container-item ${className}`}
+    className={`${styles['container-item']} ${className}`}
     style={{ cursor: onClick ? 'pointer' : 'default' }}
     onClick={onClick || undefined}
     key={value}
   >
     { picture
       && (
-        <div className="container_image">
+        <div className={styles['container_image']}>
           <img src={picture} alt={`item_${value}`} />
         </div>)}
-    <div className="item_description">
-      <h5 className="item-title">{ label }</h5>
-      <p className="item-price">{ description }</p>
+    <div className={styles['item_description']}>
+      <h5 className={styles['item-title']}>{ label }</h5>
+      <p className={styles['item-price']}>{ description }</p>
     </div>
-    <MDIcon name={trailingIcon} className="trailingIcon_list" />
+    <MDIcon name={trailingIcon} className={styles['trailingIcon_list']} />
   </div>
 );
 
 export const List: FC<ListProps> = ({ children, loading }) => (
-  <div className="list-container">
+  <div className={styles['list-container']}>
     { loading
       ? [1, 2, 3].map(() => <LoadingItem />)
       : children}
