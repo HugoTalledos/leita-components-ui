@@ -13,7 +13,7 @@ export const ToggleButtonItem: FC<ToggleButtonProps> = ({
     type="button"
     key={value}
     className={`${active ? styles.active : ''}`}
-    onClick={() => (onClick || null)}
+    onClick={onClick || null}
   >
     <MDIcon name={icon} />
   </button>);

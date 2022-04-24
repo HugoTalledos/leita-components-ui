@@ -30,6 +30,10 @@
   transition: all 0.2s ease-in-out;
 }
 
+#click:disabled + .buttons label {
+  opacity: .6;
+}
+
 #click:checked~ .buttons label p {
   display: none;
 }
@@ -62,4 +66,9 @@
   margin: auto;
   opacity: 1;
   visibility: visible;
+}
+
+.active {
+  color: var(--primary-dark)!important;
+  background-color: var(--accent)!important;
 }
