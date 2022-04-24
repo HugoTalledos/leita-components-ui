@@ -3,10 +3,10 @@
   "author": "Hugo Talledos",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
-    "start": "webpack --mode development --config config/webpack.config.js --watch",
-    "build": "rollup -c rollup.config.js -w",
+    "start": "rollup -c rollup.config.js -w",
+    "build": "rollup -c rollup.config.js",
     "lint": "eslint .",
     "prepublishOnly": "npm run build"
   },
