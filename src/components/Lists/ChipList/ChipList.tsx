@@ -20,7 +20,7 @@ export const ChipListItem: FC<ChipProps> = ({
     type="button"
     id={value}
     className={`${styles['chip-list-item']} ${className} ${active ? styles.active : ''}`}
-    onClick={onClick || undefined}
+    onClick={active ? onClick : undefined}
   >
     { picture
       && (
