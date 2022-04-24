@@ -12,7 +12,7 @@ export const ToggleButtonItem: FC<ToggleButtonProps> = ({
   <button
     type="button"
     key={value}
-    className={`${styles['ToggleButtonItem']} ${active ? styles.active : ''}`}
+    className={`${active ? styles.active : ''}`}
     onClick={() => (onClick || null)}
   >
     <MDIcon name={icon} />
@@ -25,9 +25,9 @@ export const ToggleButton: FC<ToggleButtonProps> = ({
   label,
 }) => (
   <>
-    <input type="checkbox" id="click" disabled={disabled} />
-    <div className="buttons">
-      <label htmlFor="click" className={styles['share-btn']}>
+    <input type="checkbox" id={styles.click} disabled={disabled} />
+    <div className={styles['buttons']}>
+      <label htmlFor={styles.click} className={styles['share-btn']}>
         <MDIcon name={icon} />
         <p>{label}</p>
       </label>
