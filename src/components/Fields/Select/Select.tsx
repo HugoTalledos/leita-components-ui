@@ -1,9 +1,9 @@
-import React, { useEffect, FC, useRef } from 'react';
+import React, { useEffect, FC, useRef, HTMLProps } from 'react';
 import styles from '../Fields.module.css';
 import { SelectProps } from '../Fields.types';
 import MDIcon from '../../MDIcon/MDIcon';
 
-const Select: FC<SelectProps> = ({
+const Select: FC<SelectProps & HTMLProps<HTMLSelectElement>> = ({
   label = "",
   value,
   options = [],
@@ -11,7 +11,6 @@ const Select: FC<SelectProps> = ({
   disabled = false,
   onChange,
   id,
-  ...props
 }) => {
   const selectRef = useRef(null as HTMLSelectElement | null);
   useEffect(() => {
@@ -45,7 +44,6 @@ const Select: FC<SelectProps> = ({
         <MDIcon name={icon} className={styles.icon} />
         <span>{label}</span>
         <select
-          {...props}
           className={styles['leita-select__field--select']}
           value={value}
           onChange={onChange}

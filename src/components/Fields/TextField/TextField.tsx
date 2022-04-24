@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, FC } from 'react';
+import React, { useEffect, useRef, FC, HTMLProps } from 'react';
 import MDIcon from '../../MDIcon/MDIcon';
 import { TextFieldProps } from '../Fields.types';
 import styles from '../Fields.module.css';
 
-const TextField: FC<TextFieldProps> = ({
+const TextField: FC<TextFieldProps & HTMLProps<HTMLInputElement>> = ({
   label = '',
   value,
   type,
@@ -11,7 +11,6 @@ const TextField: FC<TextFieldProps> = ({
   disabled = false,
   onChange,
   id,
-  ...props
 }) => {
   const textFieldRef = useRef<HTMLInputElement>(null as HTMLInputElement | null);
   useEffect(() => {
@@ -46,7 +45,6 @@ const TextField: FC<TextFieldProps> = ({
         <MDIcon name={icon} className={styles.icon} />
         <span>{label}</span>
         <input
-          {...props}
           ref={textFieldRef}
           disabled={disabled}
           type={type}

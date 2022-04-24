@@ -1,16 +1,15 @@
-import React, { useEffect, useRef, FC } from 'react';
+import React, { useEffect, useRef, FC, HTMLProps } from 'react';
 import MDIcon from '../../MDIcon/MDIcon';
 import { TextAreaProps } from '../Fields.types';
 import styles from '../Fields.module.css';
 
-const TextArea: FC<TextAreaProps>= ({
+const TextArea: FC<TextAreaProps & HTMLProps<HTMLTextAreaElement>>= ({
   label = "",
   value,
   icon = "",
   disabled = false,
   onChange,
   id,
-  ...props
 }) => {
   const textareaRef = useRef(null as HTMLTextAreaElement | null);
   useEffect(() => {
@@ -44,7 +43,6 @@ const TextArea: FC<TextAreaProps>= ({
         <MDIcon name={icon} className={styles.icon} />
         <span>{label}</span>
         <textarea
-          {...props}
           disabled={disabled}
           className={styles['form-content']}
           ref={textareaRef}
