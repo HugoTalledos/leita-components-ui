@@ -2,10 +2,11 @@ import React, { useEffect, FC, useRef, HTMLProps } from 'react';
 import styles from '../Fields.module.css';
 import { SelectProps } from '../Fields.types';
 import MDIcon from '../../MDIcon/MDIcon';
+import { moveLabel } from '../../../Utils/utils';
 
 const Select: FC<SelectProps & HTMLProps<HTMLSelectElement>> = ({
   label = "",
-  value,
+  value = "",
   options = [],
   icon = "",
   disabled = false,
@@ -13,30 +14,7 @@ const Select: FC<SelectProps & HTMLProps<HTMLSelectElement>> = ({
   id,
 }) => {
   const selectRef = useRef(null as HTMLSelectElement | null);
-  useEffect(() => {
-    if(!selectRef.current) return;
-    if(!selectRef.current.previousElementSibling) return;
-    if (disabled) selectRef.current.previousElementSibling.classList.add('top');
-    if (value) selectRef.current.previousElementSibling.classList.add('top');
-
-    selectRef.current.onfocus = () => {
-      if(!selectRef.current) return;
-      if(!selectRef.current.previousElementSibling) return;
-      selectRef.current.previousElementSibling.classList.add('top');
-      selectRef.current.previousElementSibling.classList.add('focus');
-      selectRef.current.classList.add('focus');
-    };
-
-    selectRef.current.onblur = () => {
-      if(!selectRef.current) return;
-      if(!selectRef.current.previousElementSibling) return;
-      if (selectRef.current.value.trim().length === 0) {
-        selectRef.current.previousElementSibling.classList.remove('top');
-      }
-      selectRef.current.previousElementSibling.classList.remove('focus');
-      selectRef.current.classList.remove('focus');
-    };
-  }, []);
+  useEffect(() => moveLabel(selectRef, value, disabled), []);
 
   return (
     <div className={styles['leita-select__field']}>
