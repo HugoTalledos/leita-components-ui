@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import MDIcon from '../../MDIcon/MDIcon';
 import { ButtonProps } from './Button.types';
-import './Button.css';
+import styles from './Button.module.css';
 
 const Button: FC<ButtonProps> = ({
   children,
@@ -20,13 +20,13 @@ const Button: FC<ButtonProps> = ({
   <button
     type="button"
     disabled={disabled}
-    className={`btn btn-${type} ${fullWidth ? 'full-width' : ''}`}
+    className={`${styles.btn} ${styles[`btn-${type}`]} ${fullWidth ? styles['full-width'] : ''}`}
     onClick={onClick || undefined}
     {...props}
   >
     {
       loading
-        ? <MDIcon name="loading" className="rotate" />
+        ? <MDIcon name="loading" className={styles.rotate} />
         : !trailingIcon && <MDIcon name={icon} className={className} style={style} />
     }
     {label}

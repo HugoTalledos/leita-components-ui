@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, FC } from 'react';
 import MDIcon from '../../MDIcon/MDIcon';
 import { TextFieldProps } from '../Fields.types';
-import '../Fields.css';
+import styles from '../Fields.module.css';
 
 const TextField: FC<TextFieldProps> = ({
   label = '',
@@ -41,9 +41,9 @@ const TextField: FC<TextFieldProps> = ({
   }, []);
 
   return (
-    <div className="leita-text__field">
+    <div className={styles['leita-text__field']}>
       <label htmlFor={id}>
-        <MDIcon name={icon} className="icon" />
+        <MDIcon name={icon} className={styles.icon} />
         <span>{label}</span>
         <input
           {...props}

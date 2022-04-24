@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import MDIcon from '../../MDIcon/MDIcon';
 import { ToggleButtonProps } from './ToggleButton.types';
-import './ToggleButton.css';
+import styles from './ToggleButton.module.css';
 
 export const ToggleButtonItem: FC<ToggleButtonProps> = ({
   icon = "",
@@ -12,7 +12,7 @@ export const ToggleButtonItem: FC<ToggleButtonProps> = ({
   <button
     type="button"
     key={value}
-    className={`ToggleButtonItem ${active ? 'active' : ''}`}
+    className={`${styles['ToggleButtonItem']} ${active ? styles.active : ''}`}
     onClick={() => (onClick || null)}
   >
     <MDIcon name={icon} />
@@ -27,7 +27,7 @@ export const ToggleButton: FC<ToggleButtonProps> = ({
   <>
     <input type="checkbox" id="click" disabled={disabled} />
     <div className="buttons">
-      <label htmlFor="click" className="share-btn">
+      <label htmlFor="click" className={styles['share-btn']}>
         <MDIcon name={icon} />
         <p>{label}</p>
       </label>
