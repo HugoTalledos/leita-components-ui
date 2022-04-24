@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { TabsProps, TabItemProps } from './Tabs.types';
-import './Tabs.css';
+import styles from './Tabs.module.css';
 
 export const TabItem: FC<TabItemProps> = ({
   label = '',
@@ -12,14 +12,14 @@ export const TabItem: FC<TabItemProps> = ({
   <button
     key={value}
     type="button"
-    className={`tab-list-item ${className} ${active ? 'active' : ''}`}
+    className={`${styles['tab-list-item']} ${className} ${active ? styles.active : ''}`}
     onClick={onClick || null}
   >
-    <p className="tab-label">{label}</p>
+    <p className={styles['tab-label']}>{label}</p>
   </button>);
 
 export const Tabs: FC<TabsProps> = ({ children }) => (
-  <div className="tabs_container">
+  <div className={styles['tabs_container']}>
     { children }
   </div>
 );
