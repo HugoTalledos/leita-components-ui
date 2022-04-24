@@ -16,7 +16,7 @@ export const NavigationItem: FC<BottomNavigationItemProps> = ({
 
 export const BottomNavigation: FC<NavigationProps> = ({ children }) => (
   <div className={styles['navigationBottom_container']}>
-    <ul className={styles['navigationBottom_container_contenstylest']}>
+    <ul className={styles['navigationBottom_container_content']}>
       { children}
     </ul>
   </div>);
