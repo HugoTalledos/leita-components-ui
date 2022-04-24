@@ -3,7 +3,7 @@ import { Buffer } from 'buffer';
 import MDIcon from '../MDIcon/MDIcon';
 import { ImagePickerProps } from './ImagePicker.types';
 import { events } from '../../Utils/constants';
-import './ImagePicker.css';
+import styles from './ImagePicker.module.css';
 
 const ImagePicker: FC<ImagePickerProps> = ({
   imageList = [],
@@ -151,14 +151,14 @@ const ImagePicker: FC<ImagePickerProps> = ({
   };
 
   return (
-    <div className="card">
-      <div className="images_content">
-        <div className="slides">
+    <div className={styles.card}>
+      <div className={styles['images_content']}>
+        <div className={styles.slides}>
           {
             (multiple && imageListThumbs.length !== 0)
             && (<MDIcon
               name="close"
-              className="remove_slide"
+              className={styles['remove_slide']}
               onClick={() => removeImage(imageKey)}
               onKeyDown={() => removeImage(imageKey)}
             />
@@ -169,13 +169,13 @@ const ImagePicker: FC<ImagePickerProps> = ({
         {
           multiple
           && (
-            <div className="slides_thumbnail">
+            <div className={styles['slides_thumbnail']}>
               {
                 (imageListThumbs.length !== 0)
                 && (imageListThumbs || []).map((image, key) => (
                   <div
                     key={key}
-                    className={`thumb_slide ${isActive[key] && 'selected'}`}
+                    className={`${styles['thumb_slide']} ${isActive[key] && styles.selected}`}
                     onClick={() => switchImage(image, key)}
                     onKeyDown={() => switchImage(image, key)}
                   >
@@ -187,7 +187,7 @@ const ImagePicker: FC<ImagePickerProps> = ({
           )
         }
       </div>
-      <div className="file-select" id="src-file1">
+      <div className={styles['file-select']} id="src-file1">
         <input
           type="file"
           name="src-file1"
