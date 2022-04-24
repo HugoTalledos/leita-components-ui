@@ -1,0 +1,76 @@
+.leita-text__field, .leita-select__field {
+  margin: 10px 0;
+}
+
+.leita-text__field label, .leita-select__field label {
+  display: block;
+  width: 100%;
+  background-color: var(--accent);
+  border-radius: 5px;
+  position: relative;
+  box-sizing: border-box;
+  padding: .5em 2.2em;
+}
+
+.leita-text__field label input,
+textarea.form-content,
+.leita-select__field--select  {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: var(--accent);
+  outline: none;
+}
+
+.leita-text__field label span,
+.leita-select__field span {
+  color: var(--primary-dark);
+  position: absolute;
+  top: 5px;
+  left: 3em;
+  transition: all .2s ease-in-out;
+}
+
+.leita-text__field label span.icon,
+.leita-select__field label span.icon {
+  position: absolute;
+  top: 8px;
+  left: .6em;
+  opacity: .7;
+}
+
+/* focus*/
+
+.leita-text__field label.focus,
+.leita-select__field label.focus {
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.leita-text__field label span.focus,
+.leita-select__field span.focus {
+  border-color: var(--primary-color);
+}
+
+/* Top */
+
+.leita-text__field label span.top,
+.leita-select__field label span.top {
+  left: 1em;
+  top: -10px;
+  font-size: 12px;
+  background-color: var(--light);
+  padding: 0 10px;
+}
+
+textarea.form-content {
+  max-height: 150px;
+  min-height: 150px;
+  max-width: 100%;
+  min-width: 100%;
+}
+
+
+.leita-text__field label input:disabled,
+textarea.form-content:disabled {
+  opacity: .6;
+}

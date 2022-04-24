@@ -3,12 +3,3 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-.App-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: auto;
-  min-height: 100vh;
-  width: 80%;
-}
