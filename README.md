@@ -67,10 +67,14 @@ Barra lateral desplegable
 ```
 ```jsx
     <SideBar title="MyApp">
-        <SideBarItem label="Text 1" icon="account" onClick={() => console.log('Hello')}/>
-        <SideBarItem label="Text 2" icon="dots-horizontal" />
+        <SideBarItem label="Elemento con acción" icon="chevron-left" onClick={() => console.log('Hello')}/>
+        <SideBarItem label="Item 1" icon="account" />
+        <SideBarItem label="Item 2" icon="menu" />
+        <SideBarItem label="Item 3" icon="dots-horizontal" />
     </SideBar>
 ```
+![Ejemplo de sidebar](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Sidebar.png)
+
 #### SideBar Props
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
@@ -90,11 +94,13 @@ Barra inferior de opciones
 ```
 ```jsx
     <BottomNavigation title="MyApp">
-        <NavigationItem icon="view-list" label="List" />
-        <NavigationItem icon="plus" label="Add" />
-        <NavigationItem icon="account" label="Profile" />
+        <NavigationItem active icon='logout' label='Cerrar sesión' />
+        <NavigationItem icon="view-list" label="Lista" />
+        <NavigationItem icon="plus" label="Agregar" />
+        <NavigationItem icon="account" label="Perfil" />
     </BottomNavigation>
 ```
+![Ejemplo de navegacion inferior](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/BottomNavigation.png)
 #### BottomNavigation Props
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
@@ -113,8 +119,12 @@ Comunica la accion que se producirá cuando el usuario lo toque.
     import { Button } from 'leita-components-ui'
 ```
 ```jsx
-    <Button label="Prueba" onClick={() => console.log('Hello')} trailingIcon="account" />
+    <Button loading label="Abrir notificacion" onClick={() => console.log('Hello')} type="danger" />
+    <Button loading label="Abrir notificacion" onClick={() => console.log('Hello')} trailingIcon="account" />
 ```
+![Ejemplo de Boton](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Button1.png)
+![Ejemplo de Boton](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Button2.png)
+
 #### Props
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
@@ -133,8 +143,14 @@ Permite al ususario seleccionar unicamente una opción.
     import { RadioButton } from 'leita-components-ui'
 ```
 ```jsx
-    <RadioButton label="Prueba2" id="prueba2" value="2" name="test" onChange={(e) => console.log(e.target.value)}/>
+    <div style={{ display: 'flex', flexDirection: 'row', gap: '10px', margin: '10px' }}>
+        <RadioButton label="Prueba2" id="prueba2" value="2" disabled name="test" onChange={(e) => console.log(e.target.value)}/>
+        <RadioButton label="Prueba3" id="prueba3" value="3" name="test" checked onChange={(e) => console.log(e.target.value)}/>
+        <RadioButton label="Prueba4" id="prueba4" value="4" name="test" onChange={(e) => console.log(e.target.value)}/>
+    </div>
 ```
+
+![Ejemplo de radio buttons](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Radiobutton.png)
 #### Props
 Sin propiedades especiales.
 
@@ -144,8 +160,16 @@ Permite a los usuarios ingresar editar y seleccionar texto.
     import { TextField } from 'leita-components-ui'
 ```
 ```jsx
-    <TextField label="Prueba" id="prueba" />
+    <TextField
+        icon='account'
+        label="Prueba"
+        id="prueba"
+        value="hola"
+        onChange={(e) => console.log(e)}
+    />
 ```
+![Ejemplo de textfield](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Textfield.png)
+
 #### Props
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
@@ -162,8 +186,9 @@ Permite a los usuarios ingresar editar y seleccionar texto.
     import { TextArea } from 'leita-components-ui'
 ```
 ```jsx
-    <TextArea label="Prueba" id="prueba" />
+    <TextArea label="Prueba" id="area" value="Lorem ipsum dolor..." onChange={(e) => console.log(e)}/>
 ```
+![Ejemplo de textfield](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Textarea.png)
 #### Props
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
@@ -187,6 +212,7 @@ Permite a los usuarios seleccionar opciones listadas.
         value="1"
     />
 ```
+![Ejemplo de select](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Select.png)
 #### Props
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
@@ -203,17 +229,32 @@ Indices verticales continuos.
     import { List, ListItem } from 'leita-components-ui'
 ```
 ```jsx
-    <List loading>
+    <List>
         <ListItem
-              label="Pizza"
-              value="1"
-              onClick={(e) => console.log(e)}
-              description="$10.00"
-              picture="https://www.infobae.com/public/FJKXKQKMMJBV7KQ7XQ3YNFO7LU.jpg"
-              trailingIcon="chevron-right"
-            />
+            label="Hamburguesa"
+            value="1"
+            onClick={(e) => console.log(e)}
+            description="$10.00"
+            picture="https://www.infobae.com/NFO7LU.jpg"
+            trailingIcon="account"            
+        />
+        <ListItem
+            label="Hotdog con queso y cebolla"
+            value="2"
+            description="$15.00"
+            picture="https://cnnespanol.cnn.com/CNN-hotdog.jpeg?quality=100&strip=info"
+            trailingIcon="chevron-right"
+        />
+        <ListItem
+            label="Item sin imagen"
+            value="2"
+            description="$15.00"
+            trailingIcon="chevron-right"
+        />
     </List>
 ```
+
+![Ejemplo de Lista](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/List.png)
 #### List Props
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
@@ -235,16 +276,32 @@ Lista horizontal de tarjetas.
     import { ChipList, ChipListItem } from 'leita-components-ui'
 ```
 ```jsx
-    <ChipList loading>
+    <ChipList>
         <ChipListItem
-              label="Pizza"
-              value="1"
-              onClick={(e) => console.log(e)}
-              active
-              picture="https://www.infobae.com/public/FJKXKQKMMJBV7KQ7XQ3YNFO7LU.jpg"
-            />
-    </List>
+            label="Categoria 1"
+            value="0"
+            picture="https://cnnespanol.cnn.com/quality=100&strip=info"
+        />
+        <ChipListItem
+            label="Categoria 1"
+            value="1"
+            active
+        />
+        <ChipListItem
+            onClick={() => console.log('hola')}
+            label="Categoria 2"
+            value="2"
+            picture="https://cnnespanol.cnn.com/quality=100&strip=info"
+        />
+        <ChipListItem
+            label="Categoria 3"
+            value="3"
+            picture="https://cnnespanol.cnn.com/quality=100&strip=info"
+        />
+    </ChipList>
 ```
+
+![Ejemplo de chiplist](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Chiplist.png)
 #### ChipList Props
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
@@ -267,10 +324,12 @@ Permita explorar y cambiar entre vistas de manera sencilla.
 ```
 ```jsx
     <Tabs>
-        <TabItem label="test" value="test" active />
-        <TabItem label="test" value="test" />
+        s<TabItem onClick={() => console.log('Hola')} label='Item 1' value='1'/>
+        <TabItem label="Item 2" value="test" active/>
+        <TabItem label="Item 3" value="test" />
     </Tabs>
 ```
+![Ejemplo de tabs](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Tabs.png)
 #### Tabs Props
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
@@ -291,12 +350,15 @@ Permite mantener informado al usuario de las acciones que realiza.
 ```
 ```jsx
     <Notification 
-        text={'Mensaje de pureba'}
-        type={'danger'}
-        icon="alert"
-        description="mas detalles de lo que paso"
-        show={show}/>
+        text='This is a notification'
+        description='This is a description'
+        icon='alert'
+        show={show}
+        type='success'
+    />
 ```
+
+![Ejemplo de notificacion](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Notification.png)
 #### Props
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
@@ -313,12 +375,15 @@ Permite mantener informado al usuario de las acciones que realiza.
 ```jsx
     <ImagePicker
         multiple
-        maxSize={5}
-        maxSizeMB={5000000}
-        onChange={(e) => onChangeFile(e)}
         imageList={imageList}
+        maxSize={5}
+        maxSizeMB={50000000}
+        onChange={(e) => testChange(e)}
     />
 ```
+![Ejemplo de imagepicker](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Imagepicker1.png)
+![Ejemplo de imagepicker](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Imagepicker2.png)
+![Ejemplo de imagepicker](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Imagepicker3.png)
 #### Props
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
@@ -339,6 +404,9 @@ Permite ocultar opciones en un unico boton.
         <ToggleButtonItem value="twitter" icon="twitter" />
     </ToggleButton>
 ```
+
+![Ejemplo de toggle](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Togglebutton1.png)
+![Ejemplo de toggle](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Togglebutton2.png)
 #### ToggleButton Props
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
