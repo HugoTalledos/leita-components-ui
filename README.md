@@ -23,6 +23,7 @@ Para usar los iconos instalar @mdi/font
 - [SideBar](#sidebar)
 - [BottomNavigation](#bottomNavigation)
 - [Button](#button)
+- [RadioButton](#radio)
 - [TextField](#textfield)
 - [TextArea](#textarea)
 - [Select](#select)
@@ -126,6 +127,16 @@ Comunica la accion que se producirá cuando el usuario lo toque.
 | `loading` |`true \| false` | Activa animacion de carga del boton. |
 | `trailingIcon` | `String \| null` | Icono izquierdo perteneciente a @mdi/font |
 | `type` | `primary \| danger \| primary-outline \| dark-outline \| dark \| link \| link-primary \| link-dark` | Indica el estilo del boton. |
+### RadioButton<a name="radio"></a>
+Permite al ususario seleccionar unicamente una opción.
+```javascript
+    import { RadioButton } from 'leita-components-ui'
+```
+```jsx
+    <RadioButton label="Prueba2" id="prueba2" value="2" name="test" onChange={(e) => console.log(e.target.value)}/>
+```
+#### Props
+Sin propiedades especiales.
 
 ### TextField<a name="textfield"></a>
 Permite a los usuarios ingresar editar y seleccionar texto.
