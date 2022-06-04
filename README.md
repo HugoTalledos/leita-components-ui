@@ -34,6 +34,7 @@ Para usar los iconos instalar @mdi/font
 - [ImagePicker](#imagepicker)
 - [ToggleButton](#togglebutton)
 - [MDIcon](#mdicon)
+- [Tooltip](#tooltip)
 ### Theme<a name="theme"></a>
 El módulo Tema abarca completamente el uso de variables CSS para la tematización en tiempo de ejecución. Esto permite algunos casos de uso realmente potentes, como un modo oscuro incorporado o  paletas personalizadas para sus clientes.
 ```javascript
@@ -437,5 +438,24 @@ Agerga iconos para reforzar el mensaje.
 | `name` | `string` | Nombre del icono perteneciente a @mdi/font. |
 | `className` |  `string \| null` | Clase css personalizada. |
 | `style` | `{ margin: '1rem' }` | Estilos personalizados para el icono. |
+
+### Tooltip<a name="tooltip"></a>
+Permite mostrar mensajes cortos que aparecen cuando tienen el foco o el cursor pasa sobre el elemento.
+```javascript
+    import { Tooltip } from 'leita-components-ui'
+```
+```jsx
+    <Tooltip align='top' content='Pequeño tip'>
+        <RadioButton label="Prueba Tooltip " />
+    </Tooltip>
+```
+
+![Ejemplo de tooltip](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Tooltip.png)
+#### Props
+| Nombre | Tipo | Descripción |
+| ----------- | ---- | ----------- |
+| `align` | `top \| right \| bottom \| left \| auto` | Posición en la que se muestra el tooltip. Cuando se elige _auto_, el tooltip se posiciona segun el espacio disponible. |
+| `content` | `string` | Mensaje que muestra el tooltip. |
+| `className` |  `string \| null` | Clase css personalizada. |
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
