@@ -27,19 +27,39 @@ export const moveLabel = (ref:any, value:string, disabled:boolean): void => {
     };
 }
 
+export const getAlignTooltip = (ref: any, align: string): string => {
+  if (align !== 'auto') return align;
+
+  const node = ref.current;
+  if (!node) return 'top';
+  if (!node.previousElementSibling) return 'top';
+
+  const { bottom, right, top, width } = node.previousElementSibling.getBoundingClientRect();
+
+  if ((window.innerWidth - right) <= width) return 'left';
+  if (top < (window.innerHeight - bottom)) return 'bottom';
+
+  return 'top';
+};
+
 export const showTooltip = (ref:any, align: string): void => {
   const node = ref.current;
   if(!node) return;
-  const { bottom, right, top, width } = node.firstElementChild.getBoundingClientRect();
+  if(!node.previousElementSibling) return;
 
-  node.firstElementChild.classList.remove(styleTooltip.top);
-  node.firstElementChild.classList.remove(styleTooltip.bottom);
-  node.firstElementChild.classList.remove(styleTooltip.left);
-  node.firstElementChild.classList.remove(styleTooltip.right);
+  node.previousElementSibling.classList.remove(styleTooltip.top);
+  node.previousElementSibling.classList.remove(styleTooltip.right);
+  node.previousElementSibling.classList.remove(styleTooltip.bottom);
+  node.previousElementSibling.classList.remove(styleTooltip.left);
 
-  if (align !== 'auto') return node.firstElementChild.classList.add(styleTooltip[align]);
-  if ((window.innerWidth - right) <= width) return node.firstElementChild.classList.add(styleTooltip.left);
-  if (top < (window.innerHeight - bottom)) return node.firstElementChild.classList.add(styleTooltip.bottom);
+  node.previousElementSibling.classList.add(styleTooltip[getAlignTooltip(ref, align)]);
+  node.previousElementSibling.classList.add(styleTooltip.visible);
+};
 
-  return node.firstElementChild.classList.add(styleTooltip.top);
+export const hiddenTooltip = (ref:any): void => {
+  const node = ref.current;
+  if(!node) return;
+  if(!node.previousElementSibling) return;
+
+  node.previousElementSibling.classList.remove(styleTooltip.visible);
 };

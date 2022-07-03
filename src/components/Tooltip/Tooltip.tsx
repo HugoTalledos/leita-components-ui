@@ -1,7 +1,7 @@
-import React, { FC, useEffect, useRef } from 'react';
+import React, { FC, useCallback, useRef, useState, useEffect } from 'react';
 import styles from './Tooltip.module.css';
 import { TooltipProps } from './Tooltip.types';
-import { showTooltip } from '../../Utils/utils';
+import { showTooltip, hiddenTooltip, getAlignTooltip } from '../../Utils/utils';
 
 const Tooltip: FC<TooltipProps> = ({
   children,
@@ -9,17 +9,23 @@ const Tooltip: FC<TooltipProps> = ({
   className = '',
   content = ''
 }) => {
+  const [position, setPosition] = useState('');
   const tooltipRef = useRef(null as HTMLDivElement | null);
-  useEffect(() => showTooltip(tooltipRef, align), [tooltipRef]);
+
+  const getPosition = useCallback(() => setPosition(getAlignTooltip(tooltipRef, align)), [tooltipRef, align]);
+  
+  useEffect(() => getPosition(), [getPosition]);
 
   return (
-  <div className={`${className} ${styles.tooltip__container}`}
-       onMouseEnter={() => showTooltip(tooltipRef, align)} ref={tooltipRef}
-       onFocus={() => showTooltip(tooltipRef, align)}>
-    <div className={`${styles.tooltip__content}`} >
+  <div className={`${className} ${styles.tooltip__container}`}>
+    <div className={`${styles.tooltip__content} ${styles[position]}`} >
       { content }
     </div>
-    { children }
+    <div ref={tooltipRef}
+         onMouseEnter={() => showTooltip(tooltipRef, align)}
+         onMouseLeave={() => hiddenTooltip(tooltipRef)}>
+      { children }
+    </div>
   </div>);
 };
 
