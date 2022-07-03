@@ -14,7 +14,7 @@ const TextField: FC<TextFieldProps & HTMLProps<HTMLInputElement>> = ({
   id,
 }) => {
   const textFieldRef = useRef<HTMLInputElement>(null as HTMLInputElement | null);
-  useEffect(() => moveLabel(textFieldRef, value, disabled), []);
+  useEffect(() => moveLabel(textFieldRef, value, disabled), [value]);
 
   return (
     <div className={styles['leita-text__field']}>
