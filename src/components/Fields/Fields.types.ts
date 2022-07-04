@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler } from "react";
+import { ChangeEventHandler } from "react";
 
 interface FormFieldsProps {
   label?: string,
@@ -6,7 +6,7 @@ interface FormFieldsProps {
   icon?: string,
   disabled?: boolean,
   id?: string,
-};
+}
 
 export interface TextFieldProps extends FormFieldsProps {
   type?: string

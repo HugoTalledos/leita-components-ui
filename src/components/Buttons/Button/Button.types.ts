@@ -12,4 +12,4 @@ export interface ButtonProps extends HTMLProps<HTMLButtonElement> {
   label?: string,
   type?: "primary" | "danger" | "primary-outline" | "dark-outline" | "dark" | "btn-link" | "btn-link-primary" | "btn-link-dark",
   style?: object,
-};
+}

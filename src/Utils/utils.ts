@@ -1,7 +1,9 @@
+import React from  'react';
 import styles from '../components/Fields/Fields.module.css';
 import styleTooltip from '../components/Tooltip/Tooltip.module.css';
 
-export const moveLabel = (ref:any, value:string, disabled:boolean): void => {
+export const moveLabel = (ref: React.RefObject<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement> ,
+    value:string, disabled:boolean): void => {
   const node = ref.current;
   if(!node) return;
     if(!node.previousElementSibling) return;
@@ -27,7 +29,7 @@ export const moveLabel = (ref:any, value:string, disabled:boolean): void => {
     };
 }
 
-export const getAlignTooltip = (ref: any, align: string): string => {
+export const getAlignTooltip = (ref: React.RefObject<HTMLDivElement>, align: string): string => {
   if (align !== 'auto') return align;
 
   const node = ref.current;
@@ -42,7 +44,7 @@ export const getAlignTooltip = (ref: any, align: string): string => {
   return 'top';
 };
 
-export const showTooltip = (ref:any, align: string): void => {
+export const showTooltip = (ref: React.RefObject<HTMLDivElement>, align: string): void => {
   const node = ref.current;
   if(!node) return;
   if(!node.previousElementSibling) return;
@@ -56,7 +58,7 @@ export const showTooltip = (ref:any, align: string): void => {
   node.previousElementSibling.classList.add(styleTooltip.visible);
 };
 
-export const hiddenTooltip = (ref:any): void => {
+export const hiddenTooltip = (ref: React.RefObject<HTMLDivElement>): void => {
   const node = ref.current;
   if(!node) return;
   if(!node.previousElementSibling) return;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, FC, ChangeEvent } from 'react';
 import { Buffer } from 'buffer';
 import MDIcon from '../MDIcon/MDIcon';
-import { ImagePickerProps } from './ImagePicker.types';
+import { ImagePickerProps, Image } from './ImagePicker.types';
 import { events } from '../../Utils/constants';
 import styles from './ImagePicker.module.css';
 
@@ -13,10 +13,10 @@ const ImagePicker: FC<ImagePickerProps> = ({
   maxSizeMB = 5000000
 }) => {
   const [image, setImage] = useState<string>('');
-  const [imageListThumbs, setImageListThumbs] = useState<Array<any>>([]);
-  const [bufferList, setBufferList] = useState<Array<any>>([]);
+  const [imageListThumbs, setImageListThumbs] = useState<Array<string>>([]);
+  const [bufferList, setBufferList] = useState<Array<Buffer>>([]);
   const [imageKey, setImageKey] = useState<number>(0);
-  const [isActive, setIsActive] = useState<Array<any>>([]);
+  const [isActive, setIsActive] = useState<Array<boolean>>([]);
   const {
     EXCEEDED_LIMIT, ONCHANGE,
     REMOVE, SINGLE_ERROR, UNEXPECTED_ERROR,
@@ -30,7 +30,7 @@ const ImagePicker: FC<ImagePickerProps> = ({
     return { error };
   };
 
-  const readURL = async (file: File) => new Promise(
+  const readURL = async (file: File) => new Promise<string | ArrayBuffer | null>(
     (resolve, reject) => {
       const readerURL = new FileReader();
       readerURL.onload = () => {
@@ -56,7 +56,8 @@ const ImagePicker: FC<ImagePickerProps> = ({
     const url = await readURL(file);
     const buffer = await readBuffer(file) as ArrayBufferLike;
     const uint8View = new Uint8Array(buffer);
-    return [Buffer.from(uint8View), url];
+    const image: Image = { buffer: Buffer.from(uint8View), url }
+    return image;
   };
 
   useEffect(() => {
@@ -77,8 +78,8 @@ const ImagePicker: FC<ImagePickerProps> = ({
 
   const loadThumbnail = async (e: ChangeEvent<HTMLInputElement>) => {
     const { files = [] } = e.target;
-    const errors: Array<String> = [];
-    const promises = [];
+    const errors: Array<string> = [];
+    const promises: Array<Promise<Image>> = [];
     if (!files) return;
     let isExceeded = validateMaxLengthImage([...files, ...imageListThumbs]);
 
@@ -100,11 +101,11 @@ const ImagePicker: FC<ImagePickerProps> = ({
       });
     }
 
-    const [bufferArray, imageArray] = await Promise.all(promises)
+    const { bufferArray, imageArray }: any = await Promise.all(promises)
       .then((resp) => {
-        const bufferArray = resp.map(([buffer]) => buffer);
-        const imageArray = resp.map(([, image]) => image);
-        return [bufferArray, imageArray];
+        const bufferArray: Array<Buffer> = resp.map(({ buffer }) => buffer);
+        const imageArray: Array<string | ArrayBuffer | null> = resp.map(({ url }) => url);
+        return { bufferArray, imageArray };
       })
       .catch(() => onChange({ errors, event: UNEXPECTED_ERROR }));
 
