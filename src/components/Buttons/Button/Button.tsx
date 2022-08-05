@@ -19,19 +19,20 @@ const Button: FC<ButtonProps> = ({
   <button
     type="button"
     disabled={disabled}
-    className={`${styles.btn} ${styles[`btn-${type}`]} ${fullWidth ? styles['full-width'] : ''}`}
+    className={`${styles.btn} ${styles[`btn-${type}`]} ${fullWidth ? styles['full-width'] : ''} ${className || ''}`}
+    style={style}
     onClick={onClick || undefined}
   >
     {
       loading
         ? <MDIcon name="loading" className={styles.rotate} />
-        : !trailingIcon && <MDIcon name={icon} className={className} style={style} />
+        : !trailingIcon && <MDIcon name={icon} />
     }
     {label}
     {children}
     {
       (trailingIcon && !icon)
-      && <MDIcon name={trailingIcon} className={className} style={style} />
+      && <MDIcon name={trailingIcon} />
     }
   </button>);
 
