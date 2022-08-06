@@ -325,9 +325,9 @@ Permita explorar y cambiar entre vistas de manera sencilla.
 ```
 ```jsx
     <Tabs>
-        s<TabItem onClick={() => console.log('Hola')} label='Item 1' value='1'/>
-        <TabItem label="Item 2" value="test" active/>
-        <TabItem label="Item 3" value="test" />
+        <TabItem onClick={() => console.log('Hola')} label='Item 1' />
+        <TabItem label="Item 2" active/>
+        <TabItem label="Item 3" />
     </Tabs>
 ```
 ![Ejemplo de tabs](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Tabs.png)
@@ -340,7 +340,6 @@ Permita explorar y cambiar entre vistas de manera sencilla.
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
 | `label` | `string \| null` | Texto principal. |
-| `value` | `string \| null` | Valor de entrada. |
 | `className` |  `string \| null` | Clase css personalizada. |
 | `active` | `true \| false` | Indica si el elemento se encuentra activado |
 
@@ -368,6 +367,8 @@ Permite mantener informado al usuario de las acciones que realiza.
 | `type` | `success \| danger \| warning` | Énfasis de la notificación. |
 | `show` | `true \| false` | Hace que la notificacion se muestre o no. |
 | `icon` | `String \| null` | Icono perteneciente a @mdi/font |
+| `onClose` | `function \| null` | Accion de icono close |
+| `maxLengthDescription`  | `number` | Numero de caracteres que permite la descripcion antes de mostrar la opcion de ver mas |
 
 ### ImagePicker<a name="imagepicker"></a>
 ```javascript
