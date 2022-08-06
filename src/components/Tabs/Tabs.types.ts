@@ -6,7 +6,6 @@ export interface TabsProps {
 
 export interface TabItemProps {
   label: string;
-  value: string;
   onClick: MouseEventHandler<HTMLButtonElement>;
   className?: string;
   active?: boolean;
