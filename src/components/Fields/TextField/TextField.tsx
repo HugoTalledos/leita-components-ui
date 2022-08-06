@@ -10,7 +10,7 @@ const TextField: FC<TextFieldProps & HTMLProps<HTMLInputElement>> = ({
   type = 'text',
   icon = '',
   disabled = false,
-  onChange,
+  onChange = () => ({}),
   id,
 }) => {
   const textFieldRef = useRef<HTMLInputElement>(null as HTMLInputElement | null);

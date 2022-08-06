@@ -10,14 +10,14 @@ interface FormFieldsProps {
 
 export interface TextFieldProps extends FormFieldsProps {
   type?: string
-  onChange?: ChangeEventHandler<HTMLInputElement>
+  onChange?: ChangeEventHandler<HTMLInputElement> | undefined
 }
 
 export interface TextAreaProps extends FormFieldsProps {
-  onChange?: ChangeEventHandler<HTMLTextAreaElement>
+  onChange?: ChangeEventHandler<HTMLTextAreaElement> | undefined
 }
 
 export interface SelectProps extends FormFieldsProps {
   options?: [{ label?: string, value?: string }]
-  onChange?: ChangeEventHandler<HTMLSelectElement>
+  onChange?: ChangeEventHandler<HTMLSelectElement> | undefined
 }
