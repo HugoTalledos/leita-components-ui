@@ -123,6 +123,7 @@ const ImagePicker: FC<ImagePickerProps> = ({
   };
 
   const onDragEnd = (result:DropResult) => {
+    let newBufferOrder;
     if (!result.destination) return;
 
     if (result.destination.index === result.source.index) return;
@@ -131,17 +132,19 @@ const ImagePicker: FC<ImagePickerProps> = ({
       result.source.index,
       result.destination.index
     );
-
-    const newBufferOrder = reorder(
-      bufferList,
-      result.source.index,
-      result.destination.index);
+    
+    if (bufferList.length > 0) {
+      newBufferOrder = reorder(
+        bufferList,
+        result.source.index,
+        result.destination.index);
+    }
 
     setImageListThumbs(newImageListOrder);
-    setBufferList(newBufferOrder);
+    setBufferList(newBufferOrder || bufferList);
 
     return onChange({
-      bufferList: newBufferOrder,
+      bufferList: newBufferOrder || bufferList,
       imageList: newImageListOrder,
       event: ONCHANGE,
     });
