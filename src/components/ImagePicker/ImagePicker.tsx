@@ -1,9 +1,11 @@
 import React, { useEffect, useState, FC, ChangeEvent } from 'react';
+import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
 import { Buffer } from 'buffer';
 import MDIcon from '../MDIcon/MDIcon';
 import { ImagePickerProps, Image } from './ImagePicker.types';
 import { events } from '../../Utils/constants';
 import styles from './ImagePicker.module.css';
+import { readURL, readBuffer, validateImage, validateMaxLengthImage, reorder } from '../../Utils/utils';
 
 const ImagePicker: FC<ImagePickerProps> = ({
   imageList = [],
@@ -21,36 +23,6 @@ const ImagePicker: FC<ImagePickerProps> = ({
     EXCEEDED_LIMIT, ONCHANGE,
     REMOVE, SINGLE_ERROR, UNEXPECTED_ERROR,
   } = events;
-
-  const validateMaxLengthImage = (images: Array<any>) => (images.length > maxSize);
-  const validateImage = (file: File) => {
-    let error;
-    if (!file.type.includes('image')) error = 'El archivo seleccionado no es una imagen';
-    if (file.size > maxSizeMB) error = 'Imagen demaciado grande (maximo 1MB)';
-    return { error };
-  };
-
-  const readURL = async (file: File) => new Promise<string | ArrayBuffer | null>(
-    (resolve, reject) => {
-      const readerURL = new FileReader();
-      readerURL.onload = () => {
-        resolve(readerURL.result);
-      };
-      readerURL.onerror = reject;
-      readerURL.readAsDataURL(file);
-    },
-  );
-
-  const readBuffer = async (file: File) => new Promise(
-    (resolve, reject) => {
-      const readerBuffer = new FileReader();
-      readerBuffer.onload = () => {
-        resolve(readerBuffer.result);
-      };
-      readerBuffer.onerror = reject;
-      readerBuffer.readAsArrayBuffer(file);
-    },
-  );
 
   const readFileAsync = async (file: File) => {
     const url = await readURL(file);
@@ -81,12 +53,12 @@ const ImagePicker: FC<ImagePickerProps> = ({
     const errors: Array<string> = [];
     const promises: Array<Promise<Image>> = [];
     if (!files) return;
-    let isExceeded = validateMaxLengthImage([...files, ...imageListThumbs]);
+    let isExceeded = validateMaxLengthImage([...files, ...imageListThumbs], maxSize);
 
     if (isExceeded) return onChange({ errors, isExceeded, event: EXCEEDED_LIMIT });
 
     for (let i = 0; i < files.length; i += 1) {
-      const { error } = validateImage(files[i]);
+      const { error } = validateImage(files[i], maxSizeMB);
       if (!error) {
         promises.push(readFileAsync(files[i]));
       } else errors.push(error);
@@ -102,19 +74,17 @@ const ImagePicker: FC<ImagePickerProps> = ({
     }
 
     const { bufferArray, imageArray }: any = await Promise.all(promises)
-      .then((resp) => {
-        const bufferArray: Array<Buffer> = resp.map(({ buffer }) => buffer);
-        const imageArray: Array<string | ArrayBuffer | null> = resp.map(({ url }) => url);
-        return { bufferArray, imageArray };
-      })
-      .catch(() => onChange({ errors, event: UNEXPECTED_ERROR }));
+    .then((resp) => {
+      const bufferArray: Array<Buffer> = resp.map(({ buffer }) => buffer);
+      const imageArray: Array<string | ArrayBuffer | null> = resp.map(({ url }) => url);
+      return { bufferArray, imageArray };
+    })
+    .catch(() => onChange({ errors, event: UNEXPECTED_ERROR }));
 
     setImage(imageListThumbs[0]);
-    isExceeded = validateMaxLengthImage([...imageListThumbs, ...imageArray]);
+    isExceeded = validateMaxLengthImage([...imageListThumbs, ...imageArray], maxSize);
 
-    if (isExceeded) {
-      onChange({ isExceeded: true, event: EXCEEDED_LIMIT });
-    }
+    if (isExceeded) onChange({ isExceeded: true, event: EXCEEDED_LIMIT });
 
     setImageListThumbs([...imageListThumbs, ...imageArray]);
     setBufferList([...bufferList, ...bufferArray]);
@@ -141,6 +111,7 @@ const ImagePicker: FC<ImagePickerProps> = ({
     } else {
       setImage('');
       setImageKey(0);
+      setBufferList([])
       setImageListThumbs([]);
     }
 
@@ -150,6 +121,31 @@ const ImagePicker: FC<ImagePickerProps> = ({
       event: REMOVE,
     });
   };
+
+  const onDragEnd = (result:DropResult) => {
+    if (!result.destination) return;
+
+    if (result.destination.index === result.source.index) return;
+    const newImageListOrder = reorder(
+      imageList,
+      result.source.index,
+      result.destination.index
+    );
+
+    const newBufferOrder = reorder(
+      bufferList,
+      result.source.index,
+      result.destination.index);
+
+    setImageListThumbs(newImageListOrder);
+    setBufferList(newBufferOrder);
+
+    return onChange({
+      bufferList: newBufferOrder,
+      imageList: newImageListOrder,
+      event: ONCHANGE,
+    });
+  }
 
   return (
     <div className={styles.card}>
@@ -170,21 +166,41 @@ const ImagePicker: FC<ImagePickerProps> = ({
         {
           multiple
           && (
-            <div className={styles['slides_thumbnail']}>
-              {
-                (imageListThumbs.length !== 0)
-                && (imageListThumbs || []).map((image, key) => (
-                  <div
-                    key={key}
-                    className={`${styles['thumb_slide']} ${isActive[key] && styles.selected}`}
-                    onClick={() => switchImage(image, key)}
-                    onKeyDown={() => switchImage(image, key)}
-                  >
-                    <img src={image} alt="thumbnail" />
-                  </div>
-                ))
-              }
-            </div>
+            <DragDropContext onDragEnd={(event) => onDragEnd(event)}>
+              <Droppable droppableId='droppable' direction='horizontal'>
+                {
+                  (provided) => (
+                    <div
+                      className={styles['slides_thumbnail']}
+                      ref={provided.innerRef}
+                      {...provided.droppableProps}>
+                      {
+                        (imageListThumbs.length !== 0)
+                        && (imageListThumbs || []).map((image, key) => (
+                          <Draggable key={key} draggableId={image + key} index={key}>
+                            {
+                              (prov) => (
+                                <div
+                                  ref={prov.innerRef}
+                                  {...prov.draggableProps}
+                                  {...prov.dragHandleProps}
+                                  key={key}
+                                  className={`${styles['thumb_slide']} ${isActive[key] && styles.selected}`}
+                                  onClick={() => switchImage(image, key)}
+                                  onKeyDown={() => switchImage(image, key)}
+                                >
+                                  <img src={image} alt="thumbnail" />
+                                </div>
+                              )
+                            }
+                          </Draggable>
+                        ))
+                      }
+                    </div>
+                  )
+                }
+              </Droppable>
+            </DragDropContext>
           )
         }
       </div>

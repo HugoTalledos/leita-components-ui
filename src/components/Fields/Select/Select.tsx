@@ -14,7 +14,7 @@ const Select: FC<SelectProps & HTMLProps<HTMLSelectElement>> = ({
   id,
 }) => {
   const selectRef = useRef(null as HTMLSelectElement | null);
-  useEffect(() => moveLabel(selectRef, value, disabled), []);
+  useEffect(() => moveLabel(selectRef, value, disabled), [value]);
 
   return (
     <div className={styles['leita-select__field']}>

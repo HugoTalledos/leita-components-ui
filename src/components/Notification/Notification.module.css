@@ -24,7 +24,7 @@
 
 .notification-content {
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 15% 75% 10%;
   align-items: center;
 }
 
@@ -34,9 +34,21 @@
 
 .notification-container__text {
   display: flex;
-  padding: 1rem 2rem 1rem 1rem;
+  padding: 1rem;
   flex-direction: column;
   gap: 5px;
+  max-height: 74px;
+  transition: max-height .5s ease-in;
+  overflow: hidden;
+}
+
+.notification-container__icons {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: .5rem 0;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
 
 .notification-container__text h5, .notification-container__text p {
@@ -50,9 +62,19 @@
 
 .notification-container__text p {
   font-size: small;
+}
+
+.view-true {
+  max-height: 100%;
+  transition: max-height .2s ease-in;
+}
+
+.notification-container__text.view-false p,
+.notification-container__text.view-false h5 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
 }
 
 .notification-container__icon.success::before,

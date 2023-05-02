@@ -13,7 +13,7 @@ const TextArea: FC<TextAreaProps & HTMLProps<HTMLTextAreaElement>>= ({
   id,
 }) => {
   const textareaRef = useRef(null as HTMLTextAreaElement | null);
-  useEffect(() => moveLabel(textareaRef, value, disabled), []);
+  useEffect(() => moveLabel(textareaRef, value, disabled), [value]);
 
   return (
     <div className={styles['leita-text__field']}>
