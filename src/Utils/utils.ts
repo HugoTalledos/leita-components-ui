@@ -65,3 +65,41 @@ export const hiddenTooltip = (ref: React.RefObject<HTMLDivElement>): void => {
 
   node.previousElementSibling.classList.remove(styleTooltip.visible);
 };
+
+export const readURL = async (file: File) => new Promise<string | ArrayBuffer | null>(
+  (resolve, reject) => {
+    const readerURL = new FileReader();
+    readerURL.onload = () => {
+      resolve(readerURL.result);
+    };
+    readerURL.onerror = reject;
+    readerURL.readAsDataURL(file);
+  },
+);
+
+export const readBuffer = async (file: File) => new Promise(
+  (resolve, reject) => {
+    const readerBuffer = new FileReader();
+    readerBuffer.onload = () => {
+      resolve(readerBuffer.result);
+    };
+    readerBuffer.onerror = reject;
+    readerBuffer.readAsArrayBuffer(file);
+  },
+);
+
+export const validateMaxLengthImage = (images: Array<any>, maxSize: number) => (images.length > maxSize);
+export const validateImage = (file: File, maxSizeMB: number ) => {
+  let error;
+  if (!file.type.includes('image')) error = 'El archivo seleccionado no es una imagen';
+  if (file.size > maxSizeMB) error = `Imagen demasiado grande (máximo ${maxSizeMB / 1000000}MB)`;
+  return { error };
+};
+
+export const reorder = (array:Array<any>, startIndex: number, endIndex: number) => {
+  const result = Array.from(array);
+  const [removed] = result.splice(startIndex, 1);
+  result.splice(endIndex, 0, removed);
+
+  return result;
+};

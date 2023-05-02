@@ -52,7 +52,7 @@
   margin-top: auto;
   margin-bottom: 20px;
   overflow: auto;
-  justify-content: space-between;
+  padding-right: 10px;
   height: 30%;
   flex-direction: row;
 }
