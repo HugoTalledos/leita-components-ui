@@ -46,20 +46,20 @@ El módulo Tema abarca completamente el uso de variables CSS para la tematizaci�
     </Theme>
 ```
 #### Props
-| Nombre | Tipo | Descripción |
-| ----------- | ---- | ----------- |
-| `children` | `React.ReactNode` | Contenido especificado como hijo. |
-| `backgroundColor` | `'#fff' \| rgb(0, 0, 0)` | Color de backgroud de etiqueta body. |
-| `primary` |  `'#fff' \| rgb(0, 0, 0)` | Color principal del tema. |
-| `darkPrimary` | `'#fff' \| rgb(0, 0, 0)` | Color primario oscuro. |
-| `accent` | `'#fff' \| rgb(0, 0, 0)` | Color de acento.|
-| `success` | `'#fff' \| rgb(0, 0, 0)` | Color para acción correcta. |
-| `warning` | `'#fff' \| rgb(0, 0, 0)` | Color para acción de advertencia. |
-| `danger` | `'#fff' \| rgb(0, 0, 0)` | Color para acción de error. |
-| `white` | `'#fff' \| rgb(0, 0, 0)` | Color blanco. |
-| `black` | `'#fff' \| rgb(0, 0, 0)` | Color negro. |
-| `shadow` | `'#fff' \| rgb(0, 0, 0)` | Color para sombra de elementos. |
-| `fontFamily` | `['Raleway', 'BlinkMacSystemFont']` | Fuentes para el documento. |
+| Nombre | Tipo | Ejemplo | Descripción |
+| ----------- | ---- | -----| ----------- |
+| `children` | `React.ReactNode` | `<div>Item</div>` | Contenido especificado como hijo. |
+| `backgroundColor` | String | `'#fff' \| rgb(0, 0, 0)` | Color de backgroud de etiqueta body. |
+| `primary` | `String` | `'#fff' \| rgb(0, 0, 0)` | Color principal del tema. |
+| `darkPrimary`| `String` | `'#fff' \| rgb(0, 0, 0)` | Color primario oscuro. |
+| `accent` | `String` | `'#fff' \| rgb(0, 0, 0)` | Color de acento.|
+| `success` | `String` | `'#fff' \| rgb(0, 0, 0)` | Color para acción correcta. |
+| `warning` | `String` | `'#fff' \| rgb(0, 0, 0)` | Color para acción de advertencia. |
+| `danger` | `String` | `'#fff' \| rgb(0, 0, 0)` | Color para acción de error. |
+| `white` | `String` | `'#fff' \| rgb(0, 0, 0)` | Color blanco. |
+| `black` | `String` | `'#fff' \| rgb(0, 0, 0)` | Color negro. |
+| `shadow` | `String` | `'#fff' \| rgb(0, 0, 0)` | Color para sombra de elementos. |
+| `fontFamily` | `Array<String>` | `['Raleway', 'BlinkMacSystemFont']` | Fuentes para el documento. |
 
 ### SideBar<a name="sidebar"></a>
 Barra lateral desplegable
@@ -85,7 +85,7 @@ Barra lateral desplegable
 #### SideBarItem Props
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
-| `label` | `string \| null` | Texto especificado como etiqueta. |
+| `label` | `String \| null` | Texto especificado como etiqueta. |
 | `icon` | `String \| null` | Icono perteneciente a @mdi/font |
 
 ### BottomNavigation<a name="bottomNavigation"></a>
@@ -110,9 +110,9 @@ Barra inferior de opciones
 #### NavigationItem Props
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
-| `label` | `string \| null` | Texto especificado como etiqueta. |
+| `label` | `String \| null` | Texto especificado como etiqueta. |
 | `icon` | `String \| null` | Icono perteneciente a @mdi/font |
-| `active` | `true \| false` | Indica si el elemento se encuentra activado |
+| `active` | `Boolean` | Indica si el elemento se encuentra activado |
 
 ### Button<a name="button"></a>
 Comunica la accion que se producirá cuando el usuario lo toque.
@@ -127,17 +127,17 @@ Comunica la accion que se producirá cuando el usuario lo toque.
 ![Ejemplo de Boton](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Button2.png)
 
 #### Props
-| Nombre | Tipo | Descripción |
-| ----------- | ---- | ----------- |
-| `children` | `React.ReactNode` | Contenido especificado como hijo. |
-| `label` | `string \| null` | Texto especificado como etiqueta. |
-| `className` |  `string \| null` | Clase css personalizada. |
-| `disabled` | `true \| false` | Hace que el boton se inhabilite. |
-| `fullWidth` | `true \| false` | Hace que el boton ocupe todo el ancho disponible.|
-| `icon` | `String \| null` | Icono derecho perteneciente a @mdi/font |
-| `loading` |`true \| false` | Activa animacion de carga del boton. |
-| `trailingIcon` | `String \| null` | Icono izquierdo perteneciente a @mdi/font |
-| `type` | `primary \| danger \| primary-outline \| dark-outline \| dark \| link \| link-primary \| link-dark` | Indica el estilo del boton. |
+| Nombre | Tipo | Ejemplo | Descripción |
+| ----------- | ---- | ---- | ----------- |
+| `children` | `React.ReactNode` | `<div>Item</div>` | Contenido especificado como hijo. |
+| `label` | `String \| null` | - |Texto especificado como etiqueta. |
+| `className` |  `String \| null` | - | Clase css personalizada. |
+| `disabled` | `Boolean` | - | Hace que el boton se inhabilite. |
+| `fullWidth` | `Boolean` | - |Hace que el boton ocupe todo el ancho disponible.|
+| `icon` | `String \| null` | - | Icono derecho perteneciente a @mdi/font |
+| `loading` |`Boolean` | - | Activa animacion de carga del boton. |
+| `trailingIcon` | `String \| null` | - | Icono izquierdo perteneciente a @mdi/font |
+| `type` | `String` | `primary \| danger \| primary-outline \| dark-outline \| dark \| link \| link-primary \| link-dark` | Indica el estilo del boton. |
 ### RadioButton<a name="radio"></a>
 Permite al ususario seleccionar unicamente una opción.
 ```javascript
@@ -174,11 +174,11 @@ Permite a los usuarios ingresar editar y seleccionar texto.
 #### Props
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
-| `label` | `string` | Texto especificado como etiqueta. |
-| `value` | `string \| null` | Valor de entrada |
+| `label` | `String` | Texto especificado como etiqueta. |
+| `value` | `String \| null` | Valor de entrada |
 | `type` | `html values` | Valores que puede recibir el textfield. |
 | `icon` | `String \| null` | Icono perteneciente a @mdi/font |
-| `disabled` | `true \| false` | Hace que el textfield se inhabilite. |
+| `disabled` | `Boolean` | Hace que el textfield se inhabilite. |
 | `id` | `String` | Identificador unico del textfield. |
 
 ### TextArea<a name="textarea"></a>
@@ -193,11 +193,11 @@ Permite a los usuarios ingresar editar y seleccionar texto.
 #### Props
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
-| `label` | `string` | Texto especificado como etiqueta. |
-| `value` | `string \| null` | Valor de entrada. |
+| `label` | `String` | Texto especificado como etiqueta. |
+| `value` | `String \| null` | Valor de entrada. |
 | `type` | `html values` | Valores que puede recibir el textarea. |
 | `icon` | `String \| null` | Icono perteneciente a @mdi/font |
-| `disabled` | `true \| false` | Hace que el textarea se inhabilite. |
+| `disabled` | `Boolean` | Hace que el textarea se inhabilite. |
 | `id` | `String` | Identificador unico del textarea. |
 
 ### Select<a name="select"></a>
@@ -215,14 +215,14 @@ Permite a los usuarios seleccionar opciones listadas.
 ```
 ![Ejemplo de select](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Select.png)
 #### Props
-| Nombre | Tipo | Descripción |
-| ----------- | ---- | ----------- |
-| `label` | `string` | Texto especificado como etiqueta. |
-| `value` | `string \| null` | Valor de entrada. |
-| `options` | `[{label, value}, {label, value}]` | Opciones a listar por el componente. |
-| `disabled` | `true \| false` | Hace que el textarea se inhabilite. |
-| `icon` | `String \| null` | Icono perteneciente a @mdi/font |
-| `id` | `String` | Identificador unico del textarea. |
+| Nombre | Tipo | Ejemplo | Descripción |
+| ----------- | ---- | ---- | ----------- |
+| `label` | `String` | - |Texto especificado como etiqueta. |
+| `value` | `String \| null` | - | Valor de entrada. |
+| `options` | `Array<Object>` | `[{label, value}, {label, value}]` | Opciones a listar por el componente. |
+| `disabled` | `Boolean` | - | Hace que el textarea se inhabilite. |
+| `icon` | `String \| null` | - | Icono perteneciente a @mdi/font |
+| `id` | `String` | - | Identificador unico del textarea. |
 
 ### List<a name="list"></a>
 Indices verticales continuos.
@@ -260,17 +260,17 @@ Indices verticales continuos.
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
 | `children` | `React.ReactNode` | Contenido especificado como hijo. |
-| `loading` |`true \| false` | Activa animacion de carga del boton. |
+| `loading` |`Boolean` | Activa animacion de carga del boton. |
 
 #### ListItem Props
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
-| `label` | `string \| null` | Texto principal. |
-| `value` | `string \| null` | Valor de entrada. |
-| `description` | `string \| null` | Texto secundario. |
+| `label` | `String \| null` | Texto principal. |
+| `value` | `String \| null` | Valor de entrada. |
+| `description` | `String \| null` | Texto secundario. |
 | `trailingIcon` | `String \| null` | Icono izquierdo perteneciente a @mdi/font |
-| `className` |  `string \| null` | Clase css personalizada. |
-| `picture` |  `string \| null` | Url de recurso. |
+| `className` |  `String \| null` | Clase css personalizada. |
+| `picture` |  `String \| null` | Url de recurso. |
 ### ChipList<a name="chiplist"></a>
 Lista horizontal de tarjetas.
 ```javascript
@@ -307,16 +307,16 @@ Lista horizontal de tarjetas.
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
 | `children` | `React.ReactNode` | Contenido especificado como hijo. |
-| `loading` |`true \| false` | Activa animacion de carga del boton. |
+| `loading` |`Boolean` | Activa animacion de carga del boton. |
 
 #### ChipListItem Props
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
-| `label` | `string \| null` | Texto principal. |
-| `value` | `string \| null` | Valor de entrada. |
-| `className` |  `string \| null` | Clase css personalizada. |
-| `active` | `true \| false` | Indica si el elemento se encuentra activado |
-| `picture` |  `string \| null` | Url de recurso. |
+| `label` | `String \| null` | Texto principal. |
+| `value` | `String \| null` | Valor de entrada. |
+| `className` |  `String \| null` | Clase css personalizada. |
+| `active` | `Boolean` | Indica si el elemento se encuentra activado |
+| `picture` |  `String \| null` | Url de recurso. |
 
 ### Tabs<a name="tabs"></a>
 Permita explorar y cambiar entre vistas de manera sencilla.
@@ -339,9 +339,9 @@ Permita explorar y cambiar entre vistas de manera sencilla.
 #### TabItem Props
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
-| `label` | `string \| null` | Texto principal. |
-| `className` |  `string \| null` | Clase css personalizada. |
-| `active` | `true \| false` | Indica si el elemento se encuentra activado |
+| `label` | `String \| null` | Texto principal. |
+| `className` |  `String \| null` | Clase css personalizada. |
+| `active` | `Boolean` | Indica si el elemento se encuentra activado |
 
 ### Notification<a name="notification"></a>
 Permite mantener informado al usuario de las acciones que realiza.
@@ -360,15 +360,15 @@ Permite mantener informado al usuario de las acciones que realiza.
 
 ![Ejemplo de notificacion](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Notification.png)
 #### Props
-| Nombre | Tipo | Descripción |
-| ----------- | ---- | ----------- |
-| `text` | `string` | Texto principal. |
-| `description` | `string \| null` | Texto secundario. |
-| `type` | `success \| danger \| warning` | Énfasis de la notificación. |
-| `show` | `true \| false` | Hace que la notificacion se muestre o no. |
-| `icon` | `String \| null` | Icono perteneciente a @mdi/font |
-| `onClose` | `function \| null` | Accion de icono close |
-| `maxLengthDescription`  | `number` | Numero de caracteres que permite la descripcion antes de mostrar la opcion de ver mas |
+| Nombre | Tipo | Ejemplo | Descripción |
+| ----------- | ---- | ----| ----------- |
+| `text` | `String` | - | Texto principal. |
+| `description` | `String \| null` | - |Texto secundario. |
+| `type` | `String` | `success \| danger \| warning` | Énfasis de la notificación. |
+| `show` | `Boolean` | - | Hace que la notificacion se muestre o no. |
+| `icon` | `String \| null` | - | Icono perteneciente a @mdi/font |
+| `onClose` | `Function \| null` | - | Accion de icono close |
+| `maxLengthDescription`  | `Number` | - | Numero de caracteres que permite la descripcion antes de mostrar la opcion de ver mas |
 
 ### ImagePicker<a name="imagepicker"></a>
 ```javascript
@@ -386,13 +386,15 @@ Permite mantener informado al usuario de las acciones que realiza.
 ![Ejemplo de imagepicker](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Imagepicker1.png)
 ![Ejemplo de imagepicker](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Imagepicker2.png)
 ![Ejemplo de imagepicker](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Imagepicker3.png)
+
+Cuando el componente cuenta con visualización de las imagenes cargadas, se puede cambiar el orden de las imagenes arrastrando y soltando las miniaturas en el orden deseado.
 #### Props
-| Nombre | Tipo | Descripción |
-| ----------- | ---- | ----------- |
-| `imageList` | `[String, String]` | Lista de imagenes que se muestran. |
-| `multiple` | `true \| false` | Hace que se puedan subir mas de una imagen. |
-| `maxSize` | `5` | Cuando se permitens subir mas de una imagen, este parametro limita la cantidad. |
-| `maxSizeMB` | `5000000` | Limita el tamaño de la imagen que se selecciona. |
+| Nombre | Tipo | Ejemplo | Descripción |
+| ----------- | ---- | ----- | ----------- |
+| `imageList` | `Array<String>` |`['', '']` | Lista de imagenes que se muestran. |
+| `multiple` | `Boolean` | - | Hace que se puedan subir mas de una imagen. |
+| `maxSize` | `Number` | `5` | Cuando se permitens subir mas de una imagen, este parametro limita la cantidad. |
+| `maxSizeMB` | `Number` | `5000000` | Limita el tamaño de la imagen que se selecciona. |
 
 
 ### ToggleButton<a name="togglebutton"></a>
@@ -413,16 +415,16 @@ Permite ocultar opciones en un unico boton.
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
 | `children` | `React.ReactNode` | Contenido especificado como hijo. |
-| `disabled` | `true \| false` | Hace que el boton se inhabilite. |
+| `disabled` | `Boolean` | Hace que el boton se inhabilite. |
 | `icon` | `String \| null` | Icono perteneciente a @mdi/font |
-| `label` | `string \| null` | Texto principal. |
+| `label` | `String \| null` | Texto principal. |
 
 #### ToggleButtonItem Props
 | Nombre | Tipo | Descripción |
 | ----------- | ---- | ----------- |
 | `icon` | `String \| null` | Icono perteneciente a @mdi/font |
-| `value` | `string \| null` | Valor de entrada. |
-| `active` | `true \| false` | Indica si el elemento se encuentra activado |
+| `value` | `String \| null` | Valor de entrada. |
+| `active` | `Boolean` | Indica si el elemento se encuentra activado |
 
 ### MDIcon<a name="mdicon"></a>
 Agerga iconos para reforzar el mensaje.
@@ -433,12 +435,12 @@ Agerga iconos para reforzar el mensaje.
     <MDIcon name="loading" className="rotate" />
 ```
 #### Props
-| Nombre | Tipo | Descripción |
-| ----------- | ---- | ----------- |
-| `size` | `24 \| 36 \| 48` | Tamaño del icono. |
-| `name` | `string` | Nombre del icono perteneciente a @mdi/font. |
-| `className` |  `string \| null` | Clase css personalizada. |
-| `style` | `{ margin: '1rem' }` | Estilos personalizados para el icono. |
+| Nombre | Tipo | Ejemplo | Descripción |
+| ----------- | ---- | --- | ----------- |
+| `size` | `Number` | `24 \| 36 \| 48` | Tamaño del icono. |
+| `name` | `String` | - | Nombre del icono perteneciente a @mdi/font. |
+| `className` |  `String \| null` | - | Clase css personalizada. |
+| `style` | `Object` | `{ margin: '1rem' }` | Estilos personalizados para el icono. |
 
 ### Tooltip<a name="tooltip"></a>
 Permite mostrar mensajes cortos que aparecen cuando tienen el foco o el cursor pasa sobre el elemento.
@@ -453,10 +455,10 @@ Permite mostrar mensajes cortos que aparecen cuando tienen el foco o el cursor p
 
 ![Ejemplo de tooltip](https://storage.googleapis.com/catalogo-test.appspot.com/documentacion/Tooltip.png)
 #### Props
-| Nombre | Tipo | Descripción |
-| ----------- | ---- | ----------- |
-| `align` | `top \| right \| bottom \| left \| auto` | Posición en la que se muestra el tooltip. Cuando se elige _auto_, el tooltip se posiciona segun el espacio disponible. |
-| `content` | `string` | Mensaje que muestra el tooltip. |
-| `className` |  `string \| null` | Clase css personalizada. |
+| Nombre | Tipo | Ejemplo | Descripción |
+| ----------- | ---- | ----- | ------ |
+| `align` | `String` | `top \| right \| bottom \| left \| auto` | Posición en la que se muestra el tooltip. Cuando se elige _auto_, el tooltip se posiciona segun el espacio disponible. |
+| `content` | `String` | - | Mensaje que muestra el tooltip. |
+| `className` |  `String \| null` | - | Clase css personalizada. |
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
