@@ -1,0 +1,81 @@
+.lateral_container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--light);
+  height: 100vh;
+  width: 70%;
+  position: fixed;
+  box-shadow: 0px 7px 14px 13px var(--shadow);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 10000000;
+}
+
+.right, .left, .up, .down {
+  transition: all .5s;
+}
+
+.right {
+  right: 0;
+}
+.hidden-lateral-right {
+  right: -100%;
+  transition: right .5s ease-in-out;
+}
+
+.left {
+  left: 0;
+}
+
+.hidden-lateral-left {
+  left: -100%;
+  transition: left .5s ease-in-out;
+}
+
+.up .lateral_container--content {
+  flex-direction: column-reverse;
+}
+
+.up {
+  top: 0;
+  height: 70%;
+  width: 100%;
+}
+
+.hidden-lateral-up {
+  top: -100%;
+  transition: top .5s ease-in-out;
+}
+
+.down {
+  bottom: 0;
+  height: 70%;
+  width: 100%;
+}
+
+.hidden-lateral-down {
+  bottom: -100%;
+  transition: bottom .5s ease-in-out;
+}
+
+.lateral_container--content {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5em;
+  height: 100%;
+}
+
+.lateral_container--content button.close {
+  border: 0;
+  background-color: transparent;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.up .lateral_container--content button.close, .down .lateral_container--content button.close  {
+  margin: 0 auto;
+}
+
+.left .lateral_container--content button.close {
+  margin-left: auto;
+}

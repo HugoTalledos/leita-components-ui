@@ -8,3 +8,4 @@ export { default as Notification } from './Notification/Notification';
 export * from './Tabs/Tabs';
 export { default as Theme } from './Theme/Theme';
 export { default as Tooltip } from './Tooltip/Tooltip';
+export { default as SlideScreen } from './LateralScreen/LateralScreen';
