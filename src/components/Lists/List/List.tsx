@@ -1,4 +1,4 @@
-import React, { FC, KeyboardEventHandler } from 'react';
+import React, { FC } from 'react';
 import MDIcon from '../../MDIcon/MDIcon';
 import { ListProps, ItemProps } from '../Lists.types';
 import styles from './List.module.css';
