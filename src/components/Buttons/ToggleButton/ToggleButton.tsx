@@ -20,11 +20,12 @@ export const ToggleButtonItem: FC<ToggleButtonProps> = ({
 
 export const ToggleButton: FC<ToggleButtonProps> = ({
   children,
+  key,
   disabled,
   icon = "",
   label,
 }) => (
-  <>
+  <div key={key}>
     <input type="checkbox" id={styles.click} disabled={disabled} />
     <div className={styles['buttons']}>
       <label htmlFor={styles.click} className={styles['share-btn']}>
@@ -33,4 +34,4 @@ export const ToggleButton: FC<ToggleButtonProps> = ({
       </label>
       { children }
     </div>
-  </>);
+  </div>);

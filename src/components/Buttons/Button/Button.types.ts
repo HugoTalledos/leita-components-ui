@@ -1,6 +1,7 @@
 import React, { MouseEventHandler, HTMLProps } from "react";
 
 export interface ButtonProps extends HTMLProps<HTMLButtonElement> {
+  key?: string,
   children?: React.ReactNode,
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined,
   icon?: string,

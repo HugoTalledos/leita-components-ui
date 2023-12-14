@@ -4,6 +4,7 @@ import { ButtonProps } from './Button.types';
 import styles from './Button.module.css';
 
 const Button: FC<ButtonProps> = ({
+  key,
   children,
   className,
   disabled = false,
@@ -18,6 +19,7 @@ const Button: FC<ButtonProps> = ({
 }) => (
   <button
     type="button"
+    key={key}
     disabled={disabled}
     className={`${styles.btn} ${styles[`btn-${type}`]} ${fullWidth ? styles['full-width'] : ''} ${className || ''}`}
     style={style}
