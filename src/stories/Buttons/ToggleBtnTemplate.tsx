@@ -21,8 +21,17 @@ const ToggleBtnTemplate: FC<ToggleButtonProps> = ({
           label='Btn 1'
           disabled={false}
           onClick={() => console.log('prueba')}
-          isOpen={() => true}
-        />
+          isOpen={() => true} />
+        <ToggleButtonItem
+          label='Btn 1'
+          disabled={false}
+          onClick={() => console.log('prueba')}
+          isOpen={() => true} />
+        <ToggleButtonItem
+          label='Btn 1'
+          disabled={false}
+          onClick={() => console.log('prueba')}
+          isOpen={() => true} />
       </ToggleButton>
   </Theme>
 );

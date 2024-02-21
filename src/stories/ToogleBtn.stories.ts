@@ -4,7 +4,7 @@ import Button from '../stories/Buttons/ToggleBtnTemplate';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof Button> = {
-  title: 'Forms/Buttons/Toogle button',
+  title: 'Componentes/Button group',
   component: Button,
   tags: ['autodocs'],
   
