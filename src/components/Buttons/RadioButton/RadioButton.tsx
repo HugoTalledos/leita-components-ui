@@ -8,7 +8,8 @@ const RadioButton: FC<HTMLProps<HTMLInputElement>> = ({
   value = '',
   checked = false,
   disabled = false,
-  onChange = undefined
+  onChange = undefined,
+  ...props
 }) => (<div key={id} className={disabled ? styles.disabled : ''}>
   <label htmlFor={id} className={styles.radiobutton__label}>
     <input
@@ -20,6 +21,7 @@ const RadioButton: FC<HTMLProps<HTMLInputElement>> = ({
       value={value}
       className={styles['radio-input']}
       onChange={onChange}
+      {...props}
     />
     <span>{label}</span>
   </label>

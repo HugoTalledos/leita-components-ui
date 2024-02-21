@@ -9,4 +9,5 @@ export interface ToggleButtonProps {
   label?: string,
   value?: string,
   onClick: MouseEventHandler<HTMLButtonElement>,
+  isOpen: (args: boolean) => boolean,
 }

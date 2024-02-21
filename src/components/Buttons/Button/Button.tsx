@@ -16,6 +16,7 @@ const Button: FC<ButtonProps> = ({
   style,
   trailingIcon,
   type = "primary",
+  ...props
 }) => (
   <button
     type="button"
@@ -24,6 +25,7 @@ const Button: FC<ButtonProps> = ({
     className={`${styles.btn} ${styles[`btn-${type}`]} ${fullWidth ? styles['full-width'] : ''} ${className || ''}`}
     style={style}
     onClick={onClick || undefined}
+    {...props}
   >
     {
       loading
